@@ -1,0 +1,23 @@
+<pre class='metadata'>
+Title: VIADE data model specification
+Shortname: VIADE
+ED: https://arquisoft.github.io/viadeSpec/
+Level: 1
+Status: LD
+Group: Software architecture teams
+URL: https://arquisoft.github.io/viadeSpec/
+Markup Shorthands: markdown yes
+Max ToC Depth: 2
+Editor: Jose Emilio Labra Gayo, University of Oviedo http://labra.weso.es
+Abstract:
+  This document describes the VIADE data model for Solid based route descriptions.
+</pre>
+
+## Status of This Document ## {#status}
+**This document is an incomplete draft.**
+
+You are invited to [contribute](https://github.com/arquisoft/viadeSpec/issues)
+any feedback, comments, or questions you might have.
+
+<pre class=include>path: introduction.bs</pre>
+

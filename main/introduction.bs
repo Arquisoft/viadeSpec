@@ -1,7 +1,8 @@
 Introduction {#intro}
 =====================
 
-
+The VIADE data model contains a specification for a common data model to represent routes in RDF inside Solid 
+ data Pods.
 
 ## Definitions ## {#definitions}
 
@@ -10,7 +11,6 @@ with mechanisms for controlling who can access what.
 
 A <dfn export>Solid app</dfn> is an application
 that reads or writes data from one or more [=data pods=].
-
 
 ## Namespaces ## {#namespaces}
 <table>
@@ -21,3 +21,10 @@ that reads or writes data from one or more [=data pods=].
 <tr><td>solid</td><td>http://www.w3.org/ns/solid/terms#</td><td>Solid Terms</td></tr>
 </tbody>
 </table>
+
+## Data model ## {#dataModel}
+
+To be done. 
+
+Issue: Define data model
+

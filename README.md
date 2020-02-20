@@ -7,8 +7,8 @@ VIADE is a Decentralized route management system that is being developed in the 
 the [Software Architecture course](http://arquisoft.github.io). 
 
 Further info:
-- [assignment description](https://labra.solid.community/public/SoftwareArchitecture/AssignmentDescription/)
-- [Solid specification](https://github.com/solid/specification)
+- [Assignment description](https://labra.solid.community/public/SoftwareArchitecture/AssignmentDescription/) describes the assignment that originates this repository.
+- [Solid specification](https://github.com/solid/specification) which also uses the same technology to document the spec.
 
 ## Editing and building the specification
 The specification is built using [Bikeshed](https://tabatkins.github.io/bikeshed/).

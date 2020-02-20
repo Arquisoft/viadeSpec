@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-for index in */index.md; do
+for index in */index.bs; do
   bikeshed spec $index;
 done
 

@@ -1,0 +1,23 @@
+Introduction {#intro}
+=====================
+
+
+
+## Definitions ## {#definitions}
+
+A <dfn export>data pod</dfn> is a place for storing documents,
+with mechanisms for controlling who can access what.
+
+A <dfn export>Solid app</dfn> is an application
+that reads or writes data from one or more [=data pods=].
+
+
+## Namespaces ## {#namespaces}
+<table>
+<tbody>
+<tr><th>Prefix</th><th>Namespace</th><th>Description</th></tr>
+<tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>[[!rdf-schema]]</td></tr>
+<tr><td>ldp</td><td>http://www.w3.org/ns/ldp#</td><td>[[!LDP]]</td></tr>
+<tr><td>solid</td><td>http://www.w3.org/ns/solid/terms#</td><td>Solid Terms</td></tr>
+</tbody>
+</table>

@@ -8,7 +8,10 @@ Group: Software architecture teams
 URL: https://arquisoft.github.io/viadeSpec/
 Markup Shorthands: markdown yes
 Max ToC Depth: 2
+Editor: Hugo Lebredo Bujan, University of Oviedo
+Editor: Irece Cid Rico, University of Oviedo
 Editor: Jose Emilio Labra Gayo, University of Oviedo http://labra.weso.es
+Editor: Pablo González González, University of Oviedo 
 Abstract:
   This document describes the VIADE data model for Solid based route descriptions.
 </pre>

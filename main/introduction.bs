@@ -24,7 +24,54 @@ that reads or writes data from one or more [=data pods=].
 
 ## Data model ## {#dataModel}
 
-To be done. 
+A **route** must contain a name, optionally it can have a description.
+Its composed by at least one GeoCoordinate and may or not have a list of comments and media elements.
 
-Issue: Define data model
+The **GeoCoordinates** must have latitude and longitude. They can have as optional properties a name, altitude and a physical address.
+
+A **UserComment** must contain the text of the comment, the time it was published and the author, being the last one a IRI to a pod profile shape.
+
+And finally, an **Image** or a **Video** must have an IRI to te resource, another IRI to the pod profile of the author and the time it was published.
+
+<pre><code>
+PREFIX :       <http://example.org/>
+PREFIX schema: <http://schema.org/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+# Node Constraint
+:Route {
+	# Triple constraint
+	schema:name			xsd:string	;
+	schema:description		xsd:string?	;
+	schema:containsGeoPoint		IRI @:GeoCoordinates+;
+	schema:hasComments		IRI @:UserComment*;
+	schema:hasMediaAttached	        [IRI @:Image IRI @:Video]*;
+}
+
+:GeoCoordinates {
+	schema:name			xsd:string?	;
+	schema:address			xsd:string?	;
+	schema:elevation		xsd:integer?;
+	schema:latitude			xsd:float	;
+	schema:longitude		xsd:float	;
+}
+
+:UserComment {
+	schema:text			xsd:string;
+	schema:publishedDate	        xsd:datetime;
+	schema:author			URI @:PodProfile;
+}
+
+:Image {
+	schema:contentUrl		IRI;
+	schema:publishedDate	        xsd:datetime;
+	schema:author			URI @:PodProfile;
+}
+
+:Video {
+	schema:contentUrl		IRI;
+	schema:publishedDate	        xsd:datetime;
+	schema:author			URI @:PodProfile;
+}
+</code></pre>
 

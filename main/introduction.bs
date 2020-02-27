@@ -51,9 +51,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 :GeoCoordinates {
 	schema:name			xsd:string?	;
 	schema:address			xsd:string?	;
-	schema:elevation		xsd:integer?;
+	schema:elevation		xsd:integer?	;
 	schema:latitude			xsd:float	;
 	schema:longitude		xsd:float	;
+	schema:position			xsd:integer	;
 }
 
 :UserComment {

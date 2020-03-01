@@ -1,6 +1,6 @@
 # viadeSpec
 
-[![Build Status](https://travis-ci.org/Arquisoft/viadeSpec.svg?branch=master)](https://travis-ci.org/Arquisoft/viadeSpec)
+[![Build Status](https://travis-ci.org/Arquisoft/viadeSpec.svg?branch=master)](https://travis-ci.org/Arquisoft/viadeSpec) [![Join the chat at https://gitter.im/Arquisoft/viadeSpec](https://badges.gitter.im/Arquisoft/viadeSpec.svg)](https://gitter.im/Arquisoft/viadeSpec?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This repository is intended to collect the VIADE Data Model Specification. 
 VIADE is a Decentralized route management system that is being developed in the context of 

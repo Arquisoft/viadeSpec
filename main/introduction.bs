@@ -109,4 +109,4 @@ prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
         schema:author <https://labra.solid.community/profile/card#me> .
 </xmp>
 
-
+You can run the example using the [RDFShape tool](https://tinyurl.com/uvhr33f) 

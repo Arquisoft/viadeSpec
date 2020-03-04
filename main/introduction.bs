@@ -25,13 +25,18 @@ that reads or writes data from one or more [=data pods=].
 ## Data model ## {#dataModel}
 
 A **route** must contain a name, optionally it can have a description.
-Its composed by at least one GeoCoordinate and may or not have a list of comments and media elements.
+Its composed by a list of points which must conform be GeoCoordinates 
+and may or not have a list of comments and media elements.
 
-The **GeoCoordinates** must have latitude and longitude. They can have as optional properties a name, altitude and a physical address.
+The **GeoCoordinates** must have latitude and longitude. 
+They can have as optional properties a name, altitude and a physical address.
 
-A **UserComment** must contain the text of the comment, the time it was published and the author, being the last one a IRI to a pod profile shape.
+A **UserComment** must contain the text of the comment, 
+ the time it was published and the author, 
+ being the last one an IRI to a pod profile shape.
 
-And finally, an **Image** or a **Video** must have an IRI to te resource, another IRI to the pod profile of the author and the time it was published.
+And finally, an **Image** or a **Video** must have an IRI to be a resource, 
+ another IRI to the pod profile of the author and the time it was published.
 
 <xmp highlight="turtle">
 prefix :  <http://arquisoft.github.io/viadeSpec/>
@@ -57,7 +62,9 @@ prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     
 # Represents geo coordinates following: https://schema.org/GeoCoordinates
 :GeoCoordinates {
-	schema:elevation		xsd:decimal  ? ;
+	schema:name             xsd:string  ? ;
+	schema:description      xsd:string  ? ;
+	schema:elevation		xsd:decimal ? ;
 	schema:latitude			xsd:decimal	;
 	schema:longitude		xsd:decimal	;
 }

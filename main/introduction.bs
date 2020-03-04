@@ -33,46 +33,80 @@ A **UserComment** must contain the text of the comment, the time it was publishe
 
 And finally, an **Image** or a **Video** must have an IRI to te resource, another IRI to the pod profile of the author and the time it was published.
 
-<pre><code>
-PREFIX :       <http://example.org/>
-PREFIX schema: <http://schema.org/>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+<xmp highlight="turtle">
+prefix :  <http://arquisoft.github.io/viadeSpec/>
+prefix schema: <http://schema.org/>
+prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
+prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-# Node Constraint
+# Represents a route
 :Route {
-	# Triple constraint
-	schema:name			xsd:string	;
-	schema:description		xsd:string?	;
-	schema:containsGeoPoint		IRI @:GeoCoordinates+;
-	schema:hasComments		IRI @:UserComment*;
-	schema:hasMediaAttached	        [IRI @:Image IRI @:Video]*;
+	schema:name		    xsd:string	 ;
+	schema:description	xsd:string ? ;
+	:points	            @:Points ;
+	:hasComments		xsd:string OR @:UserComment * ;
+	:hasMediaAttached	@:Image OR @:Video *;
 }
 
+# List of points of a route    
+:Points CLOSED {
+   rdf:first @:GeoCoordinates ;
+   rdf:rest  [rdf:nil] OR @:Points
+}
+    
+# Represents geo coordinates following: https://schema.org/GeoCoordinates
 :GeoCoordinates {
-	schema:name			xsd:string?	;
-	schema:address			xsd:string?	;
-	schema:elevation		xsd:integer?	;
-	schema:latitude			xsd:float	;
-	schema:longitude		xsd:float	;
-	schema:position			xsd:integer	;
+	schema:elevation		xsd:decimal  ? ;
+	schema:latitude			xsd:decimal	;
+	schema:longitude		xsd:decimal	;
 }
 
-:UserComment {
-	schema:text			xsd:string;
-	schema:publishedDate	        xsd:datetime;
-	schema:author			URI @:PodProfile;
+:UserComment IRI {
+	schema:text			 xsd:string;
+	schema:publishedDate xsd:datetime;
+	schema:author		 @:PodProfile;
 }
 
 :Image {
-	schema:contentUrl		IRI;
-	schema:publishedDate	        xsd:datetime;
-	schema:author			URI @:PodProfile;
+	schema:contentUrl	 IRI ;
+	schema:publishedDate xsd:datetime;
+	schema:author		 @:PodProfile;
 }
 
 :Video {
-	schema:contentUrl		IRI;
-	schema:publishedDate	        xsd:datetime;
-	schema:author			URI @:PodProfile;
+	schema:contentUrl	 IRI;
+	schema:publishedDate xsd:dateTime;
+	schema:author		 @:PodProfile;
 }
-</code></pre>
+
+:PodProfile IRI 
+</xmp>
+
+## Examples ## {#examples}
+
+An example of a route in Turtle following the previous Shape could be:
+
+<xmp highlight="turtle">
+prefix viade:  <http://arquisoft.github.io/viadeSpec/>
+prefix :       <http://example.org/>
+prefix schema: <http://schema.org/>
+prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
+
+:myRoute a viade:Route ;
+ schema:name "My first route" ;
+ schema:description "This is an example of route" ;
+ viade:points ( 
+  [ schema:latitude 23.0 ; schema:longitude 43.0 ]
+  [ schema:latitude 24.0 ; schema:longitude 44.0 ]
+ );
+ viade:hasComments "I really enjoyed this route" ;
+ viade:hasMediaAttached :media1 .
+
+:media1 schema:contentUrl <http://example.org/picture.jpg> ;
+        schema:publishedDate "2020-03-26T21:32:52"^^xsd:dateTime ;
+        schema:author <https://labra.solid.community/profile/card#me> .
+</xmp>
+
 

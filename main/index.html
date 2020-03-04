@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5721fde7f6b8111f662b83b678f9e181a9838206" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="deaa356dffda7b55a61ad394c18e8d914bfaf7f0" name="document-revision">
+  <meta content="3d411e9fd13ecead239e396ce5adde35d0703e36" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1234,72 +1234,6 @@ Possible extra rowspan handling
 [data-md] > :last-child {
     margin-bottom: 0;
 }</style>
-<style>/* style-counters */
-
-body {
-    counter-reset: example figure issue;
-}
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}</style>
-<style>/* style-dfn-panel */
-
-.dfn-panel {
-    position: absolute;
-    z-index: 35;
-    height: auto;
-    width: -webkit-fit-content;
-    width: fit-content;
-    max-width: 300px;
-    max-height: 500px;
-    overflow: auto;
-    padding: 0.5em 0.75em;
-    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-    background: #DDDDDD;
-    color: black;
-    border: outset 0.2em;
-}
-.dfn-panel:not(.on) { display: none; }
-.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-.dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
-.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-.dfn-panel > b + b { margin-top: 0.25em; }
-.dfn-panel ul { padding: 0; }
-.dfn-panel li { list-style: inside; }
-.dfn-panel.activated {
-    display: inline-block;
-    position: fixed;
-    left: .5em;
-    bottom: 2em;
-    margin: 0 auto;
-    max-width: calc(100vw - 1.5em - .4em - .5em);
-    max-height: 30vh;
-}
-
-.dfn-paneled { cursor: pointer; }
-</style>
 <style>/* style-selflinks */
 
 .heading, .issue, .note, .example, li, dt {
@@ -1346,6 +1280,35 @@ dfn > a.self-link:hover {
 a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
 dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-counters */
+
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
+}
+
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}</style>
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1408,11 +1371,106 @@ pre .property::before, pre .property::after {
 [data-link-type=biblio] {
     white-space: pre;
 }</style>
+<style>/* style-dfn-panel */
+
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    height: auto;
+    width: -webkit-fit-content;
+    width: fit-content;
+    max-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: #DDDDDD;
+    color: black;
+    border: outset 0.2em;
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: black; }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0; }
+.dfn-panel li { list-style: inside; }
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled { cursor: pointer; }
+</style>
+<style>/* style-syntax-highlighting */
+
+.highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+c-[a] { color: #990055 } /* Keyword.Declaration */
+c-[b] { color: #990055 } /* Keyword.Type */
+c-[c] { color: #708090 } /* Comment */
+c-[d] { color: #708090 } /* Comment.Multiline */
+c-[e] { color: #0077aa } /* Name.Attribute */
+c-[f] { color: #669900 } /* Name.Tag */
+c-[g] { color: #222222 } /* Name.Variable */
+c-[k] { color: #990055 } /* Keyword */
+c-[l] { color: #000000 } /* Literal */
+c-[m] { color: #000000 } /* Literal.Number */
+c-[n] { color: #0077aa } /* Name */
+c-[o] { color: #999999 } /* Operator */
+c-[p] { color: #999999 } /* Punctuation */
+c-[s] { color: #a67f59 } /* Literal.String */
+c-[t] { color: #a67f59 } /* Literal.String.Single */
+c-[u] { color: #a67f59 } /* Literal.String.Double */
+c-[cp] { color: #708090 } /* Comment.Preproc */
+c-[c1] { color: #708090 } /* Comment.Single */
+c-[cs] { color: #708090 } /* Comment.Special */
+c-[kc] { color: #990055 } /* Keyword.Constant */
+c-[kn] { color: #990055 } /* Keyword.Namespace */
+c-[kp] { color: #990055 } /* Keyword.Pseudo */
+c-[kr] { color: #990055 } /* Keyword.Reserved */
+c-[ld] { color: #000000 } /* Literal.Date */
+c-[nc] { color: #0077aa } /* Name.Class */
+c-[no] { color: #0077aa } /* Name.Constant */
+c-[nd] { color: #0077aa } /* Name.Decorator */
+c-[ni] { color: #0077aa } /* Name.Entity */
+c-[ne] { color: #0077aa } /* Name.Exception */
+c-[nf] { color: #0077aa } /* Name.Function */
+c-[nl] { color: #0077aa } /* Name.Label */
+c-[nn] { color: #0077aa } /* Name.Namespace */
+c-[py] { color: #0077aa } /* Name.Property */
+c-[ow] { color: #999999 } /* Operator.Word */
+c-[mb] { color: #000000 } /* Literal.Number.Bin */
+c-[mf] { color: #000000 } /* Literal.Number.Float */
+c-[mh] { color: #000000 } /* Literal.Number.Hex */
+c-[mi] { color: #000000 } /* Literal.Number.Integer */
+c-[mo] { color: #000000 } /* Literal.Number.Oct */
+c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
+c-[sc] { color: #a67f59 } /* Literal.String.Char */
+c-[sd] { color: #a67f59 } /* Literal.String.Doc */
+c-[se] { color: #a67f59 } /* Literal.String.Escape */
+c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
+c-[si] { color: #a67f59 } /* Literal.String.Interpol */
+c-[sx] { color: #a67f59 } /* Literal.String.Other */
+c-[sr] { color: #a67f59 } /* Literal.String.Regex */
+c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
+c-[vc] { color: #0077aa } /* Name.Variable.Class */
+c-[vg] { color: #0077aa } /* Name.Variable.Global */
+c-[vi] { color: #0077aa } /* Name.Variable.Instance */
+c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
+</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">VIADE data model specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-01">1 March 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-04">4 March 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1429,7 +1487,7 @@ pre .property::before, pre .property::after {
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 1 March 2020,
+In addition, as of 4 March 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1449,6 +1507,7 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#definitions"><span class="secno">1.1</span> <span class="content">Definitions</span></a>
       <li><a href="#namespaces"><span class="secno">1.2</span> <span class="content">Namespaces</span></a>
       <li><a href="#dataModel"><span class="secno">1.3</span> <span class="content">Data model</span></a>
+      <li><a href="#examples"><span class="secno">1.4</span> <span class="content">Examples</span></a>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
@@ -1501,47 +1560,76 @@ Its composed by at least one GeoCoordinate and may or not have a list of comment
    <p>The <strong>GeoCoordinates</strong> must have latitude and longitude. They can have as optional properties a name, altitude and a physical address.</p>
    <p>A <strong>UserComment</strong> must contain the text of the comment, the time it was published and the author, being the last one a IRI to a pod profile shape.</p>
    <p>And finally, an <strong>Image</strong> or a <strong>Video</strong> must have an IRI to te resource, another IRI to the pod profile of the author and the time it was published.</p>
-<pre><code>PREFIX :       <httpU0003A example.org>
-PREFIX schema: <httpU0003A schema.org>
-PREFIX xsd:  <httpU0003A U00032001 www.w3.org xmlschemaU00023>
+<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->  <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
+<c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
+<c- k>prefix</c-> <c- nn>rdfs:</c->   <c- g>&lt;http://www.w3.org/2000/01/rdf-schema#></c->
+<c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
+<c- k>prefix</c-> <c- nn>rdf:</c->    <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
 
-# Node Constraint
-:Route {
-  # Triple constraint
-  schema:name      xsd:string  ;
-  schema:description    xsd:string?  ;
-  schema:containsGeoPoint    IRI @:GeoCoordinates+;
-  schema:hasComments    IRI @:UserComment*;
-  schema:hasMediaAttached          [IRI @:Image IRI @:Video]*;
-}
+<c- c># Represents a route</c->
+<c- nn>:</c-><c- f>Route</c-> <c- p>{</c->
+  <c- nn>schema:</c-><c- f>name</c->        <c- nn>xsd:</c-><c- f>string</c->   <c- p>;</c->
+  <c- nn>schema:</c-><c- f>description</c->  <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
+  <c- nn>:</c-><c- f>points</c->              @<c- nn>:</c-><c- f>Points</c-> <c- p>;</c->
+  <c- nn>:</c-><c- f>hasComments</c->    <c- nn>xsd:</c-><c- f>string</c-> OR @<c- nn>:</c-><c- f>UserComment</c-> * <c- p>;</c->
+  <c- nn>:</c-><c- f>hasMediaAttached</c->  @<c- nn>:</c-><c- f>Image</c-> OR @<c- nn>:</c-><c- f>Video</c-> *<c- p>;</c->
+<c- p>}</c->
 
-:GeoCoordinates {
-  schema:name      xsd:string?  ;
-  schema:address      xsd:string?  ;
-  schema:elevation    xsd:integer?  ;
-  schema:latitude      xsd:float  ;
-  schema:longitude    xsd:float  ;
-  schema:position      xsd:integer  ;
-}
+<c- c># List of points of a route    </c->
+<c- nn>:</c-><c- f>Points</c-> CLOSED <c- p>{</c->
+   <c- nn>rdf:</c-><c- f>first</c-> @<c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>;</c->
+   <c- nn>rdf:</c-><c- f>rest</c->  <c- p>[</c-><c- nn>rdf:</c-><c- f>nil</c-><c- p>]</c-> OR @<c- nn>:</c-><c- f>Points</c->
+<c- p>}</c->
+    
+<c- c># Represents geo coordinates following: https://schema.org/GeoCoordinates</c->
+<c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>{</c->
+  <c- nn>schema:</c-><c- f>elevation</c->    <c- nn>xsd:</c-><c- f>decimal</c->  ? <c- p>;</c->
+  <c- nn>schema:</c-><c- f>latitude</c->      <c- nn>xsd:</c-><c- f>decimal</c->  <c- p>;</c->
+  <c- nn>schema:</c-><c- f>longitude</c->    <c- nn>xsd:</c-><c- f>decimal</c->  <c- p>;</c->
+<c- p>}</c->
 
-:UserComment {
-  schema:text      xsd:string;
-  schema:publishedDate          xsd:datetime;
-  schema:author      URI @:PodProfile;
-}
+<c- nn>:</c-><c- f>UserComment</c-> IRI <c- p>{</c->
+  <c- nn>schema:</c-><c- f>text</c->       <c- nn>xsd:</c-><c- f>string</c-><c- p>;</c->
+  <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-><c- p>;</c->
+  <c- nn>schema:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
+<c- p>}</c->
 
-:Image {
-  schema:contentUrl    IRI;
-  schema:publishedDate          xsd:datetime;
-  schema:author      URI @:PodProfile;
-}
+<c- nn>:</c-><c- f>Image</c-> <c- p>{</c->
+  <c- nn>schema:</c-><c- f>contentUrl</c->   IRI <c- p>;</c->
+  <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-><c- p>;</c->
+  <c- nn>schema:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
+<c- p>}</c->
 
-:Video {
-  schema:contentUrl    IRI;
-  schema:publishedDate          xsd:datetime;
-  schema:author      URI @:PodProfile;
-}
-</httpU0003A></httpU0003A></httpU0003A></code></pre>
+<c- nn>:</c-><c- f>Video</c-> <c- p>{</c->
+  <c- nn>schema:</c-><c- f>contentUrl</c->   IRI<c- p>;</c->
+  <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>dateTime</c-><c- p>;</c->
+  <c- nn>schema:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
+<c- p>}</c->
+
+<c- nn>:</c-><c- f>PodProfile</c-> IRI 
+</pre>
+   <h3 class="heading settled" data-level="1.4" id="examples"><span class="secno">1.4. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h3>
+   <p>An example of a route in Turtle following the previous Shape could be:</p>
+<pre class="highlight"><c- k>prefix</c-> <c- nn>viade:</c->  <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
+<c- k>prefix</c-> <c- nn>:</c->       <c- g>&lt;http://example.org/></c->
+<c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
+<c- k>prefix</c-> <c- nn>rdfs:</c->   <c- g>&lt;http://www.w3.org/2000/01/rdf-schema#></c->
+<c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
+
+<c- nn>:</c-><c- f>myRoute</c-> <c- b>a</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>;</c->
+ <c- nn>schema:</c-><c- f>name</c-> <c- s>"My first route"</c-> <c- p>;</c->
+ <c- nn>schema:</c-><c- f>description</c-> <c- s>"This is an example of route"</c-> <c- p>;</c->
+ <c- nn>viade:</c-><c- f>points</c-> <c- p>(</c-> 
+  <c- p>[</c-> <c- nn>schema:</c-><c- f>latitude</c-> <c- mf>23.0</c-> <c- p>;</c-> <c- nn>schema:</c-><c- f>longitude</c-> <c- mf>43.0</c-> <c- p>]</c->
+  <c- p>[</c-> <c- nn>schema:</c-><c- f>latitude</c-> <c- mf>24.0</c-> <c- p>;</c-> <c- nn>schema:</c-><c- f>longitude</c-> <c- mf>44.0</c-> <c- p>]</c->
+ <c- p>);</c->
+ <c- nn>viade:</c-><c- f>hasComments</c-> <c- s>"I really enjoyed this route"</c-> <c- p>;</c->
+ <c- nn>viade:</c-><c- f>hasMediaAttached</c-> <c- nn>:</c-><c- f>media1</c-> <c- p>.</c->
+
+<c- nn>:</c-><c- f>media1</c-> <c- nn>schema:</c-><c- f>contentUrl</c-> <c- g>&lt;http://example.org/picture.jpg></c-> <c- p>;</c->
+        <c- nn>schema:</c-><c- f>publishedDate</c-> <c- s>"2020-03-26T21:32:52"</c-><c- o>^^</c->xsd:dateTime <c- p>;</c->
+        <c- nn>schema:</c-><c- f>author</c-> <c- g>&lt;https://labra.solid.community/profile/card#me></c-> <c- p>.</c->
+</pre>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>

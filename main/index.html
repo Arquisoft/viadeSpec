@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5721fde7f6b8111f662b83b678f9e181a9838206" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="d1f5f114af959396670087ea4a983a65a326c66f" name="document-revision">
+  <meta content="364fb6fde56ff6f2fe46d43f83e18c3a979726f8" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1556,10 +1556,15 @@ that reads or writes data from one or more <a data-link-type="dfn" href="#data-p
    </table>
    <h3 class="heading settled" data-level="1.3" id="dataModel"><span class="secno">1.3. </span><span class="content">Data model</span><a class="self-link" href="#dataModel"></a></h3>
    <p>A <strong>route</strong> must contain a name, optionally it can have a description.
-Its composed by at least one GeoCoordinate and may or not have a list of comments and media elements.</p>
-   <p>The <strong>GeoCoordinates</strong> must have latitude and longitude. They can have as optional properties a name, altitude and a physical address.</p>
-   <p>A <strong>UserComment</strong> must contain the text of the comment, the time it was published and the author, being the last one a IRI to a pod profile shape.</p>
-   <p>And finally, an <strong>Image</strong> or a <strong>Video</strong> must have an IRI to te resource, another IRI to the pod profile of the author and the time it was published.</p>
+Its composed by a list of points which must conform be GeoCoordinates 
+and may or not have a list of comments and media elements.</p>
+   <p>The <strong>GeoCoordinates</strong> must have latitude and longitude.
+They can have as optional properties a name, altitude and a physical address.</p>
+   <p>A <strong>UserComment</strong> must contain the text of the comment,
+ the time it was published and the author, 
+ being the last one an IRI to a pod profile shape.</p>
+   <p>And finally, an <strong>Image</strong> or a <strong>Video</strong> must have an IRI to be a resource,
+ another IRI to the pod profile of the author and the time it was published.</p>
 <pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->  <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
 <c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
 <c- k>prefix</c-> <c- nn>rdfs:</c->   <c- g>&lt;http://www.w3.org/2000/01/rdf-schema#></c->
@@ -1583,7 +1588,9 @@ Its composed by at least one GeoCoordinate and may or not have a list of comment
     
 <c- c># Represents geo coordinates following: https://schema.org/GeoCoordinates</c->
 <c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>{</c->
-  <c- nn>schema:</c-><c- f>elevation</c->    <c- nn>xsd:</c-><c- f>decimal</c->  ? <c- p>;</c->
+  <c- nn>schema:</c-><c- f>name</c->             <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
+  <c- nn>schema:</c-><c- f>description</c->      <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
+  <c- nn>schema:</c-><c- f>elevation</c->    <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
   <c- nn>schema:</c-><c- f>latitude</c->      <c- nn>xsd:</c-><c- f>decimal</c->  <c- p>;</c->
   <c- nn>schema:</c-><c- f>longitude</c->    <c- nn>xsd:</c-><c- f>decimal</c->  <c- p>;</c->
 <c- p>}</c->

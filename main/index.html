@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5721fde7f6b8111f662b83b678f9e181a9838206" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="364fb6fde56ff6f2fe46d43f83e18c3a979726f8" name="document-revision">
+  <meta content="bd08ab4ff9711e3fbed94470f63b7a7bab99f933" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1470,7 +1470,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">VIADE data model specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-04">4 March 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-05">5 March 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1478,16 +1478,16 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dt>Issue Tracking:
      <dd><a href="https://github.com/Arquisoft/viadeSpec/issues/">GitHub</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">Hugo Lebredo Bujan</span> (<span class="p-org org">University of Oviedo</span>)
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">Irece Cid Rico</span> (<span class="p-org org">University of Oviedo</span>)
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">Jose Emilio Labra Gayo</span> (<a class="p-org org" href="http://labra.weso.es">University of Oviedo</a>)
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">Pablo González González</span> (<span class="p-org org">University of Oviedo</span>)
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://uniovi.es">Hugo Lebredo Bujan</a> (<span class="p-org org">University of Oviedo</span>)
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://uniovi.es">Irece Cid Rico</a> (<span class="p-org org">University of Oviedo</span>)
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://labra.weso.es">Jose Emilio Labra Gayo</a> (<span class="p-org org">WESO Research group</span>)
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://uniovi.es">Pablo González González</a> (<span class="p-org org">University of Oviedo</span>)
     </dl>
    </div>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 4 March 2020,
+In addition, as of 5 March 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1542,19 +1542,33 @@ that reads or writes data from one or more <a data-link-type="dfn" href="#data-p
       <th>Namespace
       <th>Description
      <tr>
-      <td>rdf
-      <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#
-      <td><a data-link-type="biblio" href="#biblio-rdf-schema">[rdf-schema]</a>
-     <tr>
       <td>ldp
       <td>http://www.w3.org/ns/ldp#
       <td><a data-link-type="biblio" href="#biblio-ldp">[LDP]</a>
      <tr>
+      <td>schema
+      <td>http://schema.org/
+      <td><a href="http://schema.org">Schema.org</a>
+     <tr>
+      <td>rdf
+      <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#
+      <td><a data-link-type="biblio" href="#biblio-rdf11-concepts">[rdf11-concepts]</a>
+     <tr>
+      <td>rdfs
+      <td>http://www.w3.org/2000/01/rdf-schema#
+      <td><a data-link-type="biblio" href="#biblio-rdf-schema">[rdf-schema]</a>
+     <tr>
       <td>solid
       <td>http://www.w3.org/ns/solid/terms#
       <td>Solid Terms
+     <tr>
+      <td>viade
+      <td>http://arquisoft.github.io/viadeSpec/
+      <td>Viade specification
    </table>
    <h3 class="heading settled" data-level="1.3" id="dataModel"><span class="secno">1.3. </span><span class="content">Data model</span><a class="self-link" href="#dataModel"></a></h3>
+   <p class="note" role="note"><span>Note:</span> This data model is a proposal made by the students and teachers of the <a href="http://arquisoft.github.io">Software Architecture</a> Course (edition 2019/20) at the University of Oviedo.
+ The data model is work-in-progress and we appreciate any feedback which can be done by <a href="https://arquisoft.github.io/viadeSpec/">raising issues</a>.</p>
    <p>A <strong>route</strong> must contain a name, optionally it can have a description.
 Its composed by a list of points which must conform be GeoCoordinates 
 and may or not have a list of comments and media elements.</p>
@@ -1573,14 +1587,14 @@ They can have as optional properties a name, altitude and a physical address.</p
 
 <c- c># Represents a route</c->
 <c- nn>:</c-><c- f>Route</c-> <c- p>{</c->
-  <c- nn>schema:</c-><c- f>name</c->        <c- nn>xsd:</c-><c- f>string</c->   <c- p>;</c->
-  <c- nn>schema:</c-><c- f>description</c->  <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
-  <c- nn>:</c-><c- f>points</c->              @<c- nn>:</c-><c- f>Points</c-> <c- p>;</c->
-  <c- nn>:</c-><c- f>hasComments</c->    <c- nn>xsd:</c-><c- f>string</c-> OR @<c- nn>:</c-><c- f>UserComment</c-> * <c- p>;</c->
-  <c- nn>:</c-><c- f>hasMediaAttached</c->  @<c- nn>:</c-><c- f>Image</c-> OR @<c- nn>:</c-><c- f>Video</c-> *<c- p>;</c->
+ <c- nn>schema:</c-><c- f>name</c->            <c- nn>xsd:</c-><c- f>string</c->   <c- p>;</c->
+ <c- nn>schema:</c-><c- f>description</c->      <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
+ <c- nn>:</c-><c- f>points</c->                @<c- nn>:</c-><c- f>Points</c-> <c- p>;</c->
+ <c- nn>:</c-><c- f>hasComments</c->           <c- nn>xsd:</c-><c- f>string</c-> OR @<c- nn>:</c-><c- f>UserComment</c-> * <c- p>;</c->
+ <c- nn>:</c-><c- f>hasMediaAttached</c->      @<c- nn>:</c-><c- f>Image</c-> OR @<c- nn>:</c-><c- f>Video</c-> *<c- p>;</c->
 <c- p>}</c->
 
-<c- c># List of points of a route    </c->
+<c- c># RDF List of points of a route    </c->
 <c- nn>:</c-><c- f>Points</c-> CLOSED <c- p>{</c->
    <c- nn>rdf:</c-><c- f>first</c-> @<c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>;</c->
    <c- nn>rdf:</c-><c- f>rest</c->  <c- p>[</c-><c- nn>rdf:</c-><c- f>nil</c-><c- p>]</c-> OR @<c- nn>:</c-><c- f>Points</c->
@@ -1588,29 +1602,29 @@ They can have as optional properties a name, altitude and a physical address.</p
     
 <c- c># Represents geo coordinates following: https://schema.org/GeoCoordinates</c->
 <c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>{</c->
-  <c- nn>schema:</c-><c- f>name</c->             <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
-  <c- nn>schema:</c-><c- f>description</c->      <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
-  <c- nn>schema:</c-><c- f>elevation</c->    <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
-  <c- nn>schema:</c-><c- f>latitude</c->      <c- nn>xsd:</c-><c- f>decimal</c->  <c- p>;</c->
-  <c- nn>schema:</c-><c- f>longitude</c->    <c- nn>xsd:</c-><c- f>decimal</c->  <c- p>;</c->
+ <c- nn>schema:</c-><c- f>name</c->         <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
+ <c- nn>schema:</c-><c- f>description</c->  <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
+ <c- nn>schema:</c-><c- f>elevation</c->    <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
+ <c- nn>schema:</c-><c- f>latitude</c->     <c- nn>xsd:</c-><c- f>decimal</c->   <c- p>;</c->
+ <c- nn>schema:</c-><c- f>longitude</c->    <c- nn>xsd:</c-><c- f>decimal</c->   <c- p>;</c->
 <c- p>}</c->
 
 <c- nn>:</c-><c- f>UserComment</c-> IRI <c- p>{</c->
-  <c- nn>schema:</c-><c- f>text</c->       <c- nn>xsd:</c-><c- f>string</c-><c- p>;</c->
-  <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-><c- p>;</c->
-  <c- nn>schema:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
+ <c- nn>schema:</c-><c- f>text</c->          <c- nn>xsd:</c-><c- f>string</c-><c- p>;</c->
+ <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-> <c- p>;</c->
+ <c- nn>schema:</c-><c- f>author</c->        @<c- nn>:</c-><c- f>PodProfile</c-> <c- p>;</c->
 <c- p>}</c->
 
 <c- nn>:</c-><c- f>Image</c-> <c- p>{</c->
-  <c- nn>schema:</c-><c- f>contentUrl</c->   IRI <c- p>;</c->
-  <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-><c- p>;</c->
-  <c- nn>schema:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
+ <c- nn>schema:</c-><c- f>contentUrl</c->    IRI <c- p>;</c->
+ <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-><c- p>;</c->
+ <c- nn>schema:</c-><c- f>author</c->        @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
 <c- p>}</c->
 
 <c- nn>:</c-><c- f>Video</c-> <c- p>{</c->
-  <c- nn>schema:</c-><c- f>contentUrl</c->   IRI<c- p>;</c->
-  <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>dateTime</c-><c- p>;</c->
-  <c- nn>schema:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
+ <c- nn>schema:</c-><c- f>contentUrl</c->    IRI<c- p>;</c->
+ <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>dateTime</c-><c- p>;</c->
+ <c- nn>schema:</c-><c- f>author</c->        @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
 <c- p>}</c->
 
 <c- nn>:</c-><c- f>PodProfile</c-> IRI 
@@ -1798,6 +1812,8 @@ They can have as optional properties a name, altitude and a physical address.</p
    <dd>Steve Speicher; John Arwe; Ashok Malhotra. <a href="https://www.w3.org/TR/ldp/">Linked Data Platform 1.0</a>. 26 February 2015. REC. URL: <a href="https://www.w3.org/TR/ldp/">https://www.w3.org/TR/ldp/</a>
    <dt id="biblio-rdf-schema">[RDF-SCHEMA]
    <dd>Dan Brickley; Ramanathan Guha. <a href="https://www.w3.org/TR/rdf-schema/">RDF Schema 1.1</a>. 25 February 2014. REC. URL: <a href="https://www.w3.org/TR/rdf-schema/">https://www.w3.org/TR/rdf-schema/</a>
+   <dt id="biblio-rdf11-concepts">[RDF11-CONCEPTS]
+   <dd>Richard Cyganiak; David Wood; Markus Lanthaler. <a href="https://www.w3.org/TR/rdf11-concepts/">RDF 1.1 Concepts and Abstract Syntax</a>. 25 February 2014. REC. URL: <a href="https://www.w3.org/TR/rdf11-concepts/">https://www.w3.org/TR/rdf11-concepts/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>

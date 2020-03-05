@@ -16,13 +16,19 @@ that reads or writes data from one or more [=data pods=].
 <table>
 <tbody>
 <tr><th>Prefix</th><th>Namespace</th><th>Description</th></tr>
-<tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>[[!rdf-schema]]</td></tr>
 <tr><td>ldp</td><td>http://www.w3.org/ns/ldp#</td><td>[[!LDP]]</td></tr>
+<tr><td>schema</td><td>http://schema.org/</td><td><a href="http://schema.org">Schema.org</a></td></tr>
+<tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>[[!rdf11-concepts]]</td></tr>
+<tr><td>rdfs</td><td>http://www.w3.org/2000/01/rdf-schema#</td><td>[[!rdf-schema]]</td></tr>
 <tr><td>solid</td><td>http://www.w3.org/ns/solid/terms#</td><td>Solid Terms</td></tr>
+<tr><td>viade</td><td>http://arquisoft.github.io/viadeSpec/</td><td>Viade specification</td></tr>
 </tbody>
 </table>
 
 ## Data model ## {#dataModel}
+
+Note: This data model is a proposal made by the students and teachers of the [Software Architecture](http://arquisoft.github.io) Course (edition 2019/20) at the University of Oviedo.
+ The data model is work-in-progress and we appreciate any feedback which can be done by [raising issues](https://arquisoft.github.io/viadeSpec/).
 
 A **route** must contain a name, optionally it can have a description.
 Its composed by a list of points which must conform be GeoCoordinates 
@@ -47,14 +53,14 @@ prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 # Represents a route
 :Route {
-	schema:name		    xsd:string	 ;
-	schema:description	xsd:string ? ;
-	:points	            @:Points ;
-	:hasComments		xsd:string OR @:UserComment * ;
-	:hasMediaAttached	@:Image OR @:Video *;
+ schema:name            xsd:string	 ;
+ schema:description	    xsd:string ? ;
+ :points                @:Points ;
+ :hasComments           xsd:string OR @:UserComment * ;
+ :hasMediaAttached      @:Image OR @:Video *;
 }
 
-# List of points of a route    
+# RDF List of points of a route    
 :Points CLOSED {
    rdf:first @:GeoCoordinates ;
    rdf:rest  [rdf:nil] OR @:Points
@@ -62,29 +68,29 @@ prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     
 # Represents geo coordinates following: https://schema.org/GeoCoordinates
 :GeoCoordinates {
-	schema:name             xsd:string  ? ;
-	schema:description      xsd:string  ? ;
-	schema:elevation		xsd:decimal ? ;
-	schema:latitude			xsd:decimal	;
-	schema:longitude		xsd:decimal	;
+ schema:name         xsd:string  ? ;
+ schema:description  xsd:string  ? ;
+ schema:elevation    xsd:decimal ? ;
+ schema:latitude     xsd:decimal   ;
+ schema:longitude    xsd:decimal   ;
 }
 
 :UserComment IRI {
-	schema:text			 xsd:string;
-	schema:publishedDate xsd:datetime;
-	schema:author		 @:PodProfile;
+ schema:text          xsd:string;
+ schema:publishedDate xsd:datetime ;
+ schema:author        @:PodProfile ;
 }
 
 :Image {
-	schema:contentUrl	 IRI ;
-	schema:publishedDate xsd:datetime;
-	schema:author		 @:PodProfile;
+ schema:contentUrl    IRI ;
+ schema:publishedDate xsd:datetime;
+ schema:author        @:PodProfile;
 }
 
 :Video {
-	schema:contentUrl	 IRI;
-	schema:publishedDate xsd:dateTime;
-	schema:author		 @:PodProfile;
+ schema:contentUrl    IRI;
+ schema:publishedDate xsd:dateTime;
+ schema:author        @:PodProfile;
 }
 
 :PodProfile IRI 

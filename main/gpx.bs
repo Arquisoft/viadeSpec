@@ -1,6 +1,11 @@
 ## GPX Routes ## {#gpx}
 
-GPX routes can be represented in Turtle using the following Shape: 
+[[GPX]] is a popular XML format that could be used to represent routes. There are two possibilities: to convert the XML format to Turtle or 
+ to embed the XML file as an RDF literal. 
+
+### GPX Routes converted to Turtle ### {#gpxTurtle}
+
+GPX routes can be represented in Turtle using the following Shape Expression: 
 
 <xmp highlight="turtle">
 prefix :    <https://www.w3.org/ns/pim/gpx#>
@@ -172,7 +177,7 @@ start = @:gpxType
 :dgpsStationType xsd:integer minInclusive 0 maxInclusive 1023
 </xmp>
 
-### GPX Route example as Turtle ## {#gpxExampleTurtle}
+### GPX Route example as Turtle ### {#gpxExampleTurtle}
 
 As an example a VIADE route represented using GPX as Turtle could be:
 
@@ -213,9 +218,11 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
 . 
 </xmp>
 
-### GPX Route example as XML ## {#gpxExampleXML}
+### GPX routes embedded as literals ### {#GPXRoutesAsLiterals}
 
-It is also possible to represent the routes embedding the XML content as an RDF literal:
+It is also possible to represent the routes embedding the XML content as an RDF literal. 
+
+The following example contains a GPX route embedded as an RDF literal.
 
 <xmp highlight="turtle">
 prefix :   <http://example.org/> 

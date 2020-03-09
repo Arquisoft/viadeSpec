@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 70c86369151f7b7b97b78c0f664dba09a4024ca2" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="fa4909bec1dc2b105b5571e20e2ed056cd6a057b" name="document-revision">
+  <meta content="5b7b2c4ab2bb1bc240f3c034b35511f0680851e8" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1520,6 +1520,7 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
     <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
@@ -1528,6 +1529,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" id="status"><span class="content">Status of This Document</span></h3>
     <strong>This document is an incomplete draft.</strong> 
    <p>You are invited to <a href="https://github.com/arquisoft/viadeSpec/issues">contribute</a> any feedback, comments, or questions you might have.</p>
+   <p>Reference to <a data-link-type="biblio" href="#biblio-gpx">[GPX]</a></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>The VIADE data model contains a specification for a common data model to represent routes in RDF inside Solid
  data Pods. The data model has been prepared by the teachers and students of 
@@ -1676,7 +1678,10 @@ import <c- g>&lt;gpx.shex></c->
 </pre>
    <p>You can run the example using the <a href="https://tinyurl.com/uvhr33f">RDFShape tool</a></p>
    <h3 class="heading settled" data-level="1.4" id="gpx"><span class="secno">1.4. </span><span class="content">GPX Routes</span><a class="self-link" href="#gpx"></a></h3>
-   <p>GPX routes can be represented in Turtle using the following Shape:</p>
+   <p><a data-link-type="biblio" href="#biblio-gpx">[GPX]</a> is a popular XML format that could be used to represent routes. There are two possibilities: to convert the XML format to Turtle or
+ to embed the XML file as an RDF literal.</p>
+   <h4 class="heading settled" data-level="1.4.1" id="gpxTurtle"><span class="secno">1.4.1. </span><span class="content">GPX Routes converted to Turtle</span><a class="self-link" href="#gpxTurtle"></a></h4>
+   <p>GPX routes can be represented in Turtle using the following Shape Expression:</p>
 <pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->    <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
 <c- k>prefix</c-> <c- nn>rdf:</c-> <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
 <c- k>prefix</c-> <c- nn>gpx:</c-> <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
@@ -1845,7 +1850,7 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- c># Represents a differential GPS station.</c->
 <c- nn>:</c-><c- f>dgpsStationType</c-> <c- nn>xsd:</c-><c- f>integer</c-> minInclusive <c- mi>0</c-> maxInclusive <c- mi>1023</c->
 </pre>
-   <h4 class="heading settled" data-level="1.4.1" id="gpxExampleTurtle"><span class="secno">1.4.1. </span><span class="content">GPX Route example as Turtle ## {#gpxExampleTurtle}</span><a class="self-link" href="#gpxExampleTurtle"></a></h4>
+   <h4 class="heading settled" data-level="1.4.2" id="gpxExampleTurtle"><span class="secno">1.4.2. </span><span class="content">GPX Route example as Turtle</span><a class="self-link" href="#gpxExampleTurtle"></a></h4>
    <p>As an example a VIADE route represented using GPX as Turtle could be:</p>
 <pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c-> 
 <c- k>prefix</c-> <c- nn>viade:</c-> <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
@@ -1882,8 +1887,9 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
  <c- p>]</c->
 <c- p>.</c-> 
 </pre>
-   <h4 class="heading settled" data-level="1.4.2" id="gpxExampleXML"><span class="secno">1.4.2. </span><span class="content">GPX Route example as XML ## {#gpxExampleXML}</span><a class="self-link" href="#gpxExampleXML"></a></h4>
-   <p>It is also possible to represent the routes embedding the XML content as an RDF literal:</p>
+   <h4 class="heading settled" data-level="1.4.3" id="GPXRoutesAsLiterals"><span class="secno">1.4.3. </span><span class="content">GPX routes embedded as literals</span><a class="self-link" href="#GPXRoutesAsLiterals"></a></h4>
+   <p>It is also possible to represent the routes embedding the XML content as an RDF literal.</p>
+   <p>The following example contains a GPX route embedded as an RDF literal.</p>
 <pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c-> 
 <c- k>prefix</c-> <c- nn>rdf:</c->   <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
 <c- k>prefix</c-> <c- nn>viade:</c-> <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
@@ -2086,6 +2092,11 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
    <dd>Richard Cyganiak; David Wood; Markus Lanthaler. <a href="https://www.w3.org/TR/rdf11-concepts/">RDF 1.1 Concepts and Abstract Syntax</a>. 25 February 2014. REC. URL: <a href="https://www.w3.org/TR/rdf11-concepts/">https://www.w3.org/TR/rdf11-concepts/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+  </dl>
+  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <dl>
+   <dt id="biblio-gpx">[GPX]
+   <dd><a href="https://www.topografix.com/gpx">GPX schema version 1.1</a>. URL: <a href="https://www.topografix.com/gpx">https://www.topografix.com/gpx</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">

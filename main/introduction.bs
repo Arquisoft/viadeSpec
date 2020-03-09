@@ -22,11 +22,11 @@ that reads or writes data from one or more [=data pods=].
 <table>
 <tbody>
 <tr><th>Prefix</th><th>Namespace</th><th>Description</th></tr>
-<tr><td>gpx</td><td>https://www.w3.org/ns/pim/gpx#</td><td>[[!LDP]]</td></tr>
-<tr><td>ldp</td><td>http://www.w3.org/ns/ldp#</td><td>[[!LDP]]</td></tr>
+<tr><td>gpx</td><td>https://www.w3.org/ns/pim/gpx#</td><td>[[GPX]]</td></tr>
+<tr><td>ldp</td><td>http://www.w3.org/ns/ldp#</td><td>[[LDP]]</td></tr>
 <tr><td>schema</td><td>http://schema.org/</td><td><a href="http://schema.org">Schema.org</a></td></tr>
 <tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>[[!rdf11-concepts]]</td></tr>
-<tr><td>rdfs</td><td>http://www.w3.org/2000/01/rdf-schema#</td><td>[[!rdf-schema]]</td></tr>
+<tr><td>rdfs</td><td>http://www.w3.org/2000/01/rdf-schema#</td><td>[[rdf-schema]]</td></tr>
 <tr><td>solid</td><td>http://www.w3.org/ns/solid/terms#</td><td>Solid Terms</td></tr>
 <tr><td>viade</td><td>http://arquisoft.github.io/viadeSpec/</td><td>Viade specification</td></tr>
 </tbody>

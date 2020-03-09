@@ -2,7 +2,13 @@ Introduction {#intro}
 =====================
 
 The VIADE data model contains a specification for a common data model to represent routes in RDF inside Solid 
- data Pods.
+ data Pods. The data model has been prepared by the teachers and students of 
+ the [Software Architecture course](https://arquisoft.github.io/) as part of the 2019-20 edition. 
+ The [assignment description](https://labra.solid.community/public/SoftwareArchitecture/AssignmentDescription/) 
+  consists in the implementation of Solid based apps for route management. 
+ In order to improve the interoperability between those apps, a common data model is required and this document 
+ is an attempt to provide one.
+
 
 ## Definitions ## {#definitions}
 
@@ -16,6 +22,7 @@ that reads or writes data from one or more [=data pods=].
 <table>
 <tbody>
 <tr><th>Prefix</th><th>Namespace</th><th>Description</th></tr>
+<tr><td>gpx</td><td>https://www.w3.org/ns/pim/gpx#</td><td>[[!LDP]]</td></tr>
 <tr><td>ldp</td><td>http://www.w3.org/ns/ldp#</td><td>[[!LDP]]</td></tr>
 <tr><td>schema</td><td>http://schema.org/</td><td><a href="http://schema.org">Schema.org</a></td></tr>
 <tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>[[!rdf11-concepts]]</td></tr>
@@ -25,101 +32,3 @@ that reads or writes data from one or more [=data pods=].
 </tbody>
 </table>
 
-## Data model ## {#dataModel}
-
-Note: This data model is a proposal made by the students and teachers of the [Software Architecture](http://arquisoft.github.io) Course (edition 2019/20) at the University of Oviedo.
- The data model is work-in-progress and we appreciate any feedback which can be done by [raising issues](https://arquisoft.github.io/viadeSpec/).
-
-A **route** must contain a name, optionally it can have a description.
-Its composed by a list of points which must conform be GeoCoordinates 
-and may or not have a list of comments and media elements.
-
-The **GeoCoordinates** must have latitude and longitude. 
-They can have as optional properties a name, altitude and a physical address.
-
-A **UserComment** must contain the text of the comment, 
- the time it was published and the author, 
- being the last one an IRI to a pod profile shape.
-
-And finally, an **Image** or a **Video** must have an IRI to be a resource, 
- another IRI to the pod profile of the author and the time it was published.
-
-<xmp highlight="turtle">
-prefix :  <http://arquisoft.github.io/viadeSpec/>
-prefix schema: <http://schema.org/>
-prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
-prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-# Represents a route
-:Route {
- schema:name            xsd:string	 ;
- schema:description	    xsd:string ? ;
- :points                @:Points ;
- :hasComments           xsd:string OR @:UserComment * ;
- :hasMediaAttached      @:Image OR @:Video *;
-}
-
-# RDF List of points of a route    
-:Points CLOSED {
-   rdf:first @:GeoCoordinates ;
-   rdf:rest  [rdf:nil] OR @:Points
-}
-    
-# Represents geo coordinates following: https://schema.org/GeoCoordinates
-:GeoCoordinates {
- schema:name         xsd:string  ? ;
- schema:description  xsd:string  ? ;
- schema:elevation    xsd:decimal ? ;
- schema:latitude     xsd:decimal   ;
- schema:longitude    xsd:decimal   ;
-}
-
-:UserComment IRI {
- schema:text          xsd:string;
- schema:publishedDate xsd:datetime ;
- schema:author        @:PodProfile ;
-}
-
-:Image {
- schema:contentUrl    IRI ;
- schema:publishedDate xsd:datetime;
- schema:author        @:PodProfile;
-}
-
-:Video {
- schema:contentUrl    IRI;
- schema:publishedDate xsd:dateTime;
- schema:author        @:PodProfile;
-}
-
-:PodProfile IRI 
-</xmp>
-
-## Examples ## {#examples}
-
-An example of a route in Turtle following the previous Shape could be:
-
-<xmp highlight="turtle">
-prefix viade:  <http://arquisoft.github.io/viadeSpec/>
-prefix :       <http://example.org/>
-prefix schema: <http://schema.org/>
-prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
-prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
-
-:myRoute a viade:Route ;
- schema:name "My first route" ;
- schema:description "This is an example of route" ;
- viade:points ( 
-  [ schema:latitude 23.0 ; schema:longitude 43.0 ]
-  [ schema:latitude 24.0 ; schema:longitude 44.0 ]
- );
- viade:hasComments "I really enjoyed this route" ;
- viade:hasMediaAttached :media1 .
-
-:media1 schema:contentUrl <http://example.org/picture.jpg> ;
-        schema:publishedDate "2020-03-26T21:32:52"^^xsd:dateTime ;
-        schema:author <https://labra.solid.community/profile/card#me> .
-</xmp>
-
-You can run the example using the [RDFShape tool](https://tinyurl.com/uvhr33f) 

@@ -9,6 +9,7 @@ import <gpx.shex>
 
 # Represents a route
 :Route {
+ a                      [ viade:Route ] ;   
  schema:name            xsd:string	 ;
  schema:description	    xsd:string ? ;
  :points                @:Points ? ; 

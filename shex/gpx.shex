@@ -1,0 +1,143 @@
+prefix gpx:    <https://www.w3.org/ns/pim/gpx#>
+prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
+
+base <https://www.w3.org/ns/pim/gpx#>
+
+
+# This document contains a ShEx representation of the XML Schema defined for GPX 
+# The original schema URI is <http://www.topografix.com/GPX/1/1>
+
+<GPX> {
+ <metadata> @<metadataType> ? ;  
+ <wpt>      @<wptType> * ;
+ <rte>      @<rteType> * ;
+ <trk>      @<trkType> *
+} 
+
+# wpt represents a waypoint, point of interest, or named feature on a map
+<wptType> {
+ <lat>           @<latitudeType> ;
+ <long>          @<longitudeType> ;
+ <ele>           xsd:decimal ? ;
+ <time>          xsd:dateTime ? ;
+ <magvar>        @<degreesType> ?
+ <geoidheight>   xsd:decimal ? ;
+ <name>          xsd:string ? ;
+ <cmt>           xsd:string ? ;
+ <desc>          xsd:string ? ;
+ <src>           xsd:string ? ;
+ <link>          @<linkType> ? ;
+ <sym>           xsd:string ? ;
+ <type>          xsd:string ? ;
+ <fix>           @<fixType> ? ;
+ <sat>           xsd:nonNegativeInteger ?
+ <hdop>          xsd:decimal ? ;
+ <vdop>          xsd:decimal ? ;
+ <pdop>          xsd:decimal ? ;
+ <ageofdgpsdata> xsd:decimal ? ;
+ <dgpsid>        @<dgpsStationType> ? ;
+ <extensions>    @<extensionsType> ?
+}
+
+# rte represents route - an ordered list of waypoints representing a series of turn points leading to a destination
+<rteType> {
+ <name>       xsd:string ? ;
+ <cmt>        xsd:string ? ;
+ <desc>       xsd:string ? ;
+ <src>        xsd:string ? ;
+ <link>       @<linkType> * ;
+ <number>     xsd:nonNegativeInteger ? ;
+ <type>       xsd:string ? ;
+ <extensions> @<extensionsType> ? ;
+ <rtept>      @<wptTypeList>
+}
+
+<wptTypeList> CLOSED {
+ rdf:first @<wptType> ;
+ rdf:rest  [rdf:nil] OR @<wptTypeList>
+}
+
+# trk represents a track - an ordered list of points describing a path
+<trkType> {
+ <name>       xsd:string ? ;
+ <cmt>        xsd:string ? ;
+ <desc>       xsd:string ? ;
+ <src>        xsd:string ? ;
+ <link>       @<linkType> * ;
+ <number>     xsd:nonNegativeInteger ? ;
+ <type>       xsd:string ? ;
+ <extensions> @<extensionsType> ? ;
+ <trkseg>     @<trksegType> *
+}
+
+
+
+# Allow any elements from a namespace other than this schema's namespace 
+<extensionsType> {
+}
+
+# A Track Segment holds a list of Track Points which are logically connected in order. 
+# To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, 
+# start a new Track Segment for each continuous span of track data.
+<trksegType> {
+ <trkpt>      @<wptTypeList> * ;
+ <extensions> @<extensionsType> ? 
+}
+
+# Information about the copyright holder and any license governing use of this file. 
+# By linking to an appropriate license, you may place your data into the public domain or grant additional usage rights.
+<copyrightType> {
+ <author> xsd:string ;
+ <year>   xsd:gYear ? ;
+ <license> xsd:anyURI ?
+}
+
+# A link to an external resource (Web page, digital photo, video clip, etc) with additional information
+<linkType> {
+ <href> xsd:anyURI ;
+ <text> xsd:string ?
+ <type> xsd:string    
+}
+
+# An email address. Broken into two parts (id and domain) to help prevent email harvesting.
+<emailType> {
+ <id> xsd:string ;
+ <domain> xsd:string ;   
+}
+
+# A person or organization.
+<personType> {
+ <name>   xsd:string ? ;
+ <email>  @<emailType> ;
+ <link>   @<linkType> 
+}
+
+# A geographic point with optional elevation and time. Available for use by other schemas.
+<ptType> {
+ <lat>  @<latitudeType> ;
+ <long> @<longitudeType> ;
+ <ele>  xsd:decimal ? ;
+ <time> xsd:dateTime ?
+}
+
+# An ordered sequence of points. (for polygons or polylines, e.g.)
+<ptsegType> CLOSED {
+ rdf:first @<ptType> ;
+ rdf:rest  [rdf:nil] OR @<ptsegType> ;
+}
+
+
+<metadataType> {
+
+}
+
+<latitudeType> {
+
+}
+
+<longitudeType> {
+
+}
+
+
+

@@ -274,4 +274,5 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
 
 ### GPX to RDF converters  ### {#gpx2RDF}
 
-It is possible to convert from GPX files in XML to RDF files in RDF/XML using the following [XSLT file]()
+It is possible to convert from GPX files in XML to RDF files in RDF/XML using the 
+ following [XSLT file](https://github.com/Arquisoft/viadeSpec/blob/master/converters/gpx2rdf.xslt)

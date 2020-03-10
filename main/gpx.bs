@@ -22,6 +22,8 @@ start = @:gpxType
 # GPX documents contain a metadata header, followed by waypoints, routes, and tracks. 
 # You can add your own elements to the extensions section of the GPX document
 :gpxType {
+ gpx:creator    xsd:string ? ;
+ gpx:version    xsd:string ? ;  
  gpx:metadata   @:metadataType ? ;  
  gpx:wpt        @:wptType * ;
  gpx:rte        @:rteType * ;
@@ -46,7 +48,7 @@ start = @:gpxType
 # wpt represents a waypoint, point of interest, or named feature on a map
 :wptType {
  gpx:lat           @:latitudeType ;
- gpx:long          @:longitudeType ;
+ gpx:lon           @:longitudeType ;
  gpx:ele           xsd:decimal ? ;
  gpx:time          xsd:dateTime ? ;
  gpx:magvar        @:degreesType ? ;
@@ -191,32 +193,38 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
 :exampleRoute a viade:Route ;
  schema:name   "A nice walk" ;
  viade:gpx [ 
-  gpx:trk [
-    gpx:trkseg [
-      gpx:trkpts ( 
-       [ gpx:trkpt [ 
-           gpx:lat  47.644548 ;
-           gpx:long -122.326897 ;
-           gpx:ele  4.46 ;
-           gpx:time "2009-10-17T18:37:26Z"^^xsd:dateTime
-      ]] 
-      [ gpx:trkpt [ 
-          gpx:lat  47.644548 ;
-          gpx:long -122.326897 ;
-          gpx:ele  4.94 ;
-          gpx:time "2009-10-17T18:37:26Z"^^xsd:dateTime
-      ]] 
-      [ gpx:trkpt [ 
-          gpx:lat  47.644548 ;
-          gpx:long -122.326897 ;
-          gpx:ele  6.87 ;
-          gpx:time "2009-10-17T18:37:26Z"^^xsd:dateTime
-      ]]  )
-   ]
-  ]
+  gpx:creator  "Oregon 400t" ;
+  gpx:version   "1.1";
+  gpx:metadata  [ gpx:link  [ gpx:href  "http://www.garmin.com" ;
+                                    gpx:text  "Garmin International"
+                                  ] ;
+                  gpx:time  "2009-10-17T22:58:43Z"^^xsd:dateTime
+        ] ;
+  gpx:trk [ gpx:name    "Example GPX Document" ;
+            gpx:trkseg  [ gpx:trkpts  ( [ gpx:trkpt  [ gpx:ele   4.46 ;
+                                                       gpx:lat   47.644548 ;
+                                                       gpx:lon   -122.326897 ;
+                                                       gpx:time  "2009-10-17T18:37:26Z"^^xsd:dateTime
+                                                     ] ]
+                                                    [ gpx:trkpt  [ 
+                                                       gpx:ele   4.94 ;
+                                                       gpx:lat   47.644548 ;
+                                                       gpx:lon   -122.326897 ;
+                                                       gpx:time  "2009-10-17T18:37:31Z"^^xsd:dateTime
+                                                    ] ]
+                                                    [ gpx:trkpt  [ 
+                                                       gpx:ele   6.87 ;
+                                                       gpx:lat   47.644548 ;
+                                                       gpx:lon   -122.326897 ;
+                                                       gpx:time  "2009-10-17T18:37:34Z"^^xsd:dateTime
+                                                    ] ]
+                                        ) ]
+            ] 
  ]
 . 
 </xmp>
+
+
 
 ### GPX routes embedded as literals ### {#GPXRoutesAsLiterals}
 
@@ -264,3 +272,6 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
 . 
 </xmp>
 
+### GPX to RDF converters  ### {#gpx2RDF}
+
+It is possible to convert from GPX files in XML to RDF files in RDF/XML using the following [XSLT file]()

@@ -12,6 +12,8 @@ start = @:gpxType
 # GPX documents contain a metadata header, followed by waypoints, routes, and tracks. 
 # You can add your own elements to the extensions section of the GPX document
 :gpxType {
+ gpx:creator    xsd:string ? ;
+ gpx:version    xsd:string ? ;   
  gpx:metadata   @:metadataType ? ;  
  gpx:wpt        @:wptType * ;
  gpx:rte        @:rteType * ;
@@ -36,7 +38,7 @@ start = @:gpxType
 # wpt represents a waypoint, point of interest, or named feature on a map
 :wptType {
  gpx:lat           @:latitudeType ;
- gpx:long          @:longitudeType ;
+ gpx:lon           @:longitudeType ;
  gpx:ele           xsd:decimal ? ;
  gpx:time          xsd:dateTime ? ;
  gpx:magvar        @:degreesType ? ;

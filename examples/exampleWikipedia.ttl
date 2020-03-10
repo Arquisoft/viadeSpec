@@ -1,43 +1,31 @@
-prefix :    <http://example.org/>
-prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix gpx: <https://www.w3.org/ns/pim/gpx#>
-prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+@prefix ex:    <http://example.org/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix gpxml: <http://www.topografix.com/GPX/1/1> .
+@prefix gpx:   <https://www.w3.org/ns/pim/gpx#> .
 
-:myRoute 
- gpx:metadata [ 
-  gpx:link [
-   gpx:href "http://www.garmin.com"^^xsd:anyURI ;
-   gpx:text "Garmin International" ;
-  ] ;
-  gpx:time "2009-10-17T22:58:43Z"^^xsd:dateTime ;
- ] ;
- gpx:trk [
- gpx:name "Example GPX Document" ;
- gpx:trkseg [
-  gpx:trkpts ( 
-   [ gpx:trkpt [ 
-     gpx:lat  47.644548 ;
-     gpx:long -122.326897 ;
-     gpx:ele  4.46 ;
-     gpx:time "2009-10-17T18:37:26Z"^^xsd:dateTime
-    ]
-   ] 
-   [ gpx:trkpt [ 
-     gpx:lat  47.644548 ;
-     gpx:long -122.326897 ;
-     gpx:ele  4.94 ;
-     gpx:time "2009-10-17T18:37:26Z"^^xsd:dateTime
-    ]
-   ] 
-   [ gpx:trkpt [ 
-     gpx:lat  47.644548 ;
-     gpx:long -122.326897 ;
-     gpx:ele  6.87 ;
-     gpx:time "2009-10-17T18:37:26Z"^^xsd:dateTime
-    ]
-   ] 
-  )
- ] 
-] .
-
-
+ex:myRoute  gpx:creator  "Oregon 400t" ;
+        gpx:metadata  [ gpx:link  [ gpx:href  "http://www.garmin.com"^^xsd:anyURI ;
+                                    gpx:text  "Garmin International"
+                                  ] ;
+                        gpx:time  "2009-10-17T22:58:43Z"^^xsd:dateTime
+                      ] ;
+        gpx:trk       [ gpx:name    "Example GPX Document" ;
+                        gpx:trkseg  [ gpx:trkpts  ( [ gpx:trkpt  [ gpx:ele   4.46 ;
+                                                                   gpx:lat   47.644548 ;
+                                                                   gpx:lon   -122.326897 ;
+                                                                   gpx:time  "2009-10-17T18:37:26Z"^^xsd:dateTime
+                                                                 ] ]
+                                                    [ gpx:trkpt  [ gpx:ele   4.94 ;
+                                                                   gpx:lat   47.644548 ;
+                                                                   gpx:lon   -122.326897 ;
+                                                                   gpx:time  "2009-10-17T18:37:31Z"^^xsd:dateTime
+                                                                 ] ]
+                                                    [ gpx:trkpt  [ gpx:ele   6.87 ;
+                                                                   gpx:lat   47.644548 ;
+                                                                   gpx:lon   -122.326897 ;
+                                                                   gpx:time  "2009-10-17T18:37:34Z"^^xsd:dateTime
+                                                                 ] ]
+                                                  ) ]
+                      ] ;
+        gpx:version   "1.1" .

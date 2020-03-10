@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 70c86369151f7b7b97b78c0f664dba09a4024ca2" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="f6fce984bbc6a096657822e361ccb3a1ad786839" name="document-revision">
+  <meta content="bad978d68d599758b300e420c8555b94c32b6c3f" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1470,7 +1470,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">VIADE data model specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-09">9 March 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-10">10 March 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1488,7 +1488,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 9 March 2020,
+In addition, as of 10 March 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1696,6 +1696,8 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- c># GPX documents contain a metadata header, followed by waypoints, routes, and tracks. </c->
 <c- c># You can add your own elements to the extensions section of the GPX document</c->
 <c- nn>:</c-><c- f>gpxType</c-> <c- p>{</c->
+ <c- nn>gpx:</c-><c- f>creator</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
+ <c- nn>gpx:</c-><c- f>version</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->  
  <c- nn>gpx:</c-><c- f>metadata</c->   @<c- nn>:</c-><c- f>metadataType</c-> ? <c- p>;</c->  
  <c- nn>gpx:</c-><c- f>wpt</c->        @<c- nn>:</c-><c- f>wptType</c-> * <c- p>;</c->
  <c- nn>gpx:</c-><c- f>rte</c->        @<c- nn>:</c-><c- f>rteType</c-> * <c- p>;</c->
@@ -1720,7 +1722,7 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- c># wpt represents a waypoint, point of interest, or named feature on a map</c->
 <c- nn>:</c-><c- f>wptType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>lat</c->           @<c- nn>:</c-><c- f>latitudeType</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>long</c->          @<c- nn>:</c-><c- f>longitudeType</c-> <c- p>;</c->
+ <c- nn>gpx:</c-><c- f>lon</c->           @<c- nn>:</c-><c- f>longitudeType</c-> <c- p>;</c->
  <c- nn>gpx:</c-><c- f>ele</c->           <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
  <c- nn>gpx:</c-><c- f>time</c->          <c- nn>xsd:</c-><c- f>dateTime</c-> ? <c- p>;</c->
  <c- nn>gpx:</c-><c- f>magvar</c->        @<c- nn>:</c-><c- f>degreesType</c-> ? <c- p>;</c->
@@ -1861,29 +1863,33 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- nn>:</c-><c- f>exampleRoute</c-> <c- b>a</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>;</c->
  <c- nn>schema:</c-><c- f>name</c->   <c- s>"A nice walk"</c-> <c- p>;</c->
  <c- nn>viade:</c-><c- f>gpx</c-> <c- p>[</c-> 
-  <c- nn>gpx:</c-><c- f>trk</c-> <c- p>[</c->
-    <c- nn>gpx:</c-><c- f>trkseg</c-> <c- p>[</c->
-      <c- nn>gpx:</c-><c- f>trkpts</c-> <c- p>(</c-> 
-       <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c-> <c- p>[</c-> 
-           <c- nn>gpx:</c-><c- f>lat</c->  <c- mf>47.644548</c-> <c- p>;</c->
-           <c- nn>gpx:</c-><c- f>long</c-> <c- mf>-122.326897</c-> <c- p>;</c->
-           <c- nn>gpx:</c-><c- f>ele</c->  <c- mf>4.46</c-> <c- p>;</c->
-           <c- nn>gpx:</c-><c- f>time</c-> <c- s>"2009-10-17T18:37:26Z"</c-><c- o>^^</c->xsd:dateTime
-      <c- p>]]</c-> 
-      <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c-> <c- p>[</c-> 
-          <c- nn>gpx:</c-><c- f>lat</c->  <c- mf>47.644548</c-> <c- p>;</c->
-          <c- nn>gpx:</c-><c- f>long</c-> <c- mf>-122.326897</c-> <c- p>;</c->
-          <c- nn>gpx:</c-><c- f>ele</c->  <c- mf>4.94</c-> <c- p>;</c->
-          <c- nn>gpx:</c-><c- f>time</c-> <c- s>"2009-10-17T18:37:26Z"</c-><c- o>^^</c->xsd:dateTime
-      <c- p>]]</c-> 
-      <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c-> <c- p>[</c-> 
-          <c- nn>gpx:</c-><c- f>lat</c->  <c- mf>47.644548</c-> <c- p>;</c->
-          <c- nn>gpx:</c-><c- f>long</c-> <c- mf>-122.326897</c-> <c- p>;</c->
-          <c- nn>gpx:</c-><c- f>ele</c->  <c- mf>6.87</c-> <c- p>;</c->
-          <c- nn>gpx:</c-><c- f>time</c-> <c- s>"2009-10-17T18:37:26Z"</c-><c- o>^^</c->xsd:dateTime
-      <c- p>]]</c->  <c- p>)</c->
-   <c- p>]</c->
-  <c- p>]</c->
+  <c- nn>gpx:</c-><c- f>creator</c->  <c- s>"Oregon 400t"</c-> <c- p>;</c->
+  <c- nn>gpx:</c-><c- f>version</c->   <c- s>"1.1"</c-><c- p>;</c->
+  <c- nn>gpx:</c-><c- f>metadata</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>link</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>href</c->  <c- s>"http://www.garmin.com"</c-> <c- p>;</c->
+                                    <c- nn>gpx:</c-><c- f>text</c->  <c- s>"Garmin International"</c->
+                                  <c- p>]</c-> <c- p>;</c->
+                  <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T22:58:43Z"</c-><c- o>^^</c->xsd:dateTime
+        <c- p>]</c-> <c- p>;</c->
+  <c- nn>gpx:</c-><c- f>trk</c-> <c- p>[</c-> <c- nn>gpx:</c-><c- f>name</c->    <c- s>"Example GPX Document"</c-> <c- p>;</c->
+            <c- nn>gpx:</c-><c- f>trkseg</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpts</c->  <c- p>(</c-> <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>4.46</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:26Z"</c-><c- o>^^</c->xsd:dateTime
+                                                     <c- p>]</c-> <c- p>]</c->
+                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> 
+                                                       <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>4.94</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:31Z"</c-><c- o>^^</c->xsd:dateTime
+                                                    <c- p>]</c-> <c- p>]</c->
+                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> 
+                                                       <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>6.87</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
+                                                       <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:34Z"</c-><c- o>^^</c->xsd:dateTime
+                                                    <c- p>]</c-> <c- p>]</c->
+                                        <c- p>)</c-> <c- p>]</c->
+            <c- p>]</c-> 
  <c- p>]</c->
 <c- p>.</c-> 
 </pre>
@@ -1928,6 +1934,8 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- s> ]</c->
 <c- s>. </c->
 </pre>
+   <h4 class="heading settled" data-level="1.4.4" id="gpx2RDF"><span class="secno">1.4.4. </span><span class="content">GPX to RDF converters</span><a class="self-link" href="#gpx2RDF"></a></h4>
+   <p>It is possible to convert from GPX files in XML to RDF files in RDF/XML using the following <a href="https://github.com/Arquisoft/viadeSpec/blob/master/converters/gpx2rdf.xslt">XSLT file</a></p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>

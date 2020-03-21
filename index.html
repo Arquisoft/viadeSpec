@@ -1221,94 +1221,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 70c86369151f7b7b97b78c0f664dba09a4024ca2" name="generator">
+  <meta content="Bikeshed version 2d9ffc4, updated Fri Mar 20 17:26:52 2020 -0700" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="1ddec5682972addd73f7752545c4fb7a467422a8" name="document-revision">
-<style>/* style-md-lists */
-
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
-}
-[data-md] > :last-child {
-    margin-bottom: 0;
-}</style>
-<style>/* style-selflinks */
-
-.heading, .issue, .note, .example, li, dt {
-    position: relative;
-}
-a.self-link {
-    position: absolute;
-    top: 0;
-    left: calc(-1 * (3.5rem - 26px));
-    width: calc(3.5rem - 26px);
-    height: 2em;
-    text-align: center;
-    border: none;
-    transition: opacity .2s;
-    opacity: .5;
-}
-a.self-link:hover {
-    opacity: 1;
-}
-.heading > a.self-link {
-    font-size: 83%;
-}
-li > a.self-link {
-    left: calc(-1 * (3.5rem - 26px) - 2em);
-}
-dfn > a.self-link {
-    top: auto;
-    left: auto;
-    opacity: 0;
-    width: 1.5em;
-    height: 1.5em;
-    background: gray;
-    color: white;
-    font-style: normal;
-    transition: opacity .2s, background-color .2s, color .2s;
-}
-dfn:hover > a.self-link {
-    opacity: 1;
-}
-dfn > a.self-link:hover {
-    color: black;
-}
-
-a.self-link::before            { content: "¶"; }
-.heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }</style>
-<style>/* style-counters */
-
-body {
-    counter-reset: example figure issue;
-}
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}</style>
+  <meta content="9b845d1fa876efd60c00a6b4b704cfb785e410be" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1371,6 +1286,35 @@ pre .property::before, pre .property::after {
 [data-link-type=biblio] {
     white-space: pre;
 }</style>
+<style>/* style-counters */
+
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
+}
+
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}</style>
 <style>/* style-dfn-panel */
 
 .dfn-panel {
@@ -1408,76 +1352,73 @@ pre .property::before, pre .property::after {
 
 .dfn-paneled { cursor: pointer; }
 </style>
-<style>/* style-syntax-highlighting */
+<style>/* style-md-lists */
 
-.highlight:not(.idl) { background: hsl(24, 20%, 95%); }
-code.highlight { padding: .1em; border-radius: .3em; }
-pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-c-[a] { color: #990055 } /* Keyword.Declaration */
-c-[b] { color: #990055 } /* Keyword.Type */
-c-[c] { color: #708090 } /* Comment */
-c-[d] { color: #708090 } /* Comment.Multiline */
-c-[e] { color: #0077aa } /* Name.Attribute */
-c-[f] { color: #669900 } /* Name.Tag */
-c-[g] { color: #222222 } /* Name.Variable */
-c-[k] { color: #990055 } /* Keyword */
-c-[l] { color: #000000 } /* Literal */
-c-[m] { color: #000000 } /* Literal.Number */
-c-[n] { color: #0077aa } /* Name */
-c-[o] { color: #999999 } /* Operator */
-c-[p] { color: #999999 } /* Punctuation */
-c-[s] { color: #a67f59 } /* Literal.String */
-c-[t] { color: #a67f59 } /* Literal.String.Single */
-c-[u] { color: #a67f59 } /* Literal.String.Double */
-c-[cp] { color: #708090 } /* Comment.Preproc */
-c-[c1] { color: #708090 } /* Comment.Single */
-c-[cs] { color: #708090 } /* Comment.Special */
-c-[kc] { color: #990055 } /* Keyword.Constant */
-c-[kn] { color: #990055 } /* Keyword.Namespace */
-c-[kp] { color: #990055 } /* Keyword.Pseudo */
-c-[kr] { color: #990055 } /* Keyword.Reserved */
-c-[ld] { color: #000000 } /* Literal.Date */
-c-[nc] { color: #0077aa } /* Name.Class */
-c-[no] { color: #0077aa } /* Name.Constant */
-c-[nd] { color: #0077aa } /* Name.Decorator */
-c-[ni] { color: #0077aa } /* Name.Entity */
-c-[ne] { color: #0077aa } /* Name.Exception */
-c-[nf] { color: #0077aa } /* Name.Function */
-c-[nl] { color: #0077aa } /* Name.Label */
-c-[nn] { color: #0077aa } /* Name.Namespace */
-c-[py] { color: #0077aa } /* Name.Property */
-c-[ow] { color: #999999 } /* Operator.Word */
-c-[mb] { color: #000000 } /* Literal.Number.Bin */
-c-[mf] { color: #000000 } /* Literal.Number.Float */
-c-[mh] { color: #000000 } /* Literal.Number.Hex */
-c-[mi] { color: #000000 } /* Literal.Number.Integer */
-c-[mo] { color: #000000 } /* Literal.Number.Oct */
-c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
-c-[sc] { color: #a67f59 } /* Literal.String.Char */
-c-[sd] { color: #a67f59 } /* Literal.String.Doc */
-c-[se] { color: #a67f59 } /* Literal.String.Escape */
-c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
-c-[si] { color: #a67f59 } /* Literal.String.Interpol */
-c-[sx] { color: #a67f59 } /* Literal.String.Other */
-c-[sr] { color: #a67f59 } /* Literal.String.Regex */
-c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
-c-[vc] { color: #0077aa } /* Name.Variable.Class */
-c-[vg] { color: #0077aa } /* Name.Variable.Global */
-c-[vi] { color: #0077aa } /* Name.Variable.Instance */
-c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
-</style>
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}</style>
+<style>/* style-selflinks */
+
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: gray;
+    color: white;
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: black;
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">VIADE data model specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-10">10 March 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-21">21 March 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://arquisoft.github.io/viadeSpec/">https://arquisoft.github.io/viadeSpec/</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/Arquisoft/viadeSpec/issues/">GitHub</a>
-     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://uniovi.es">Hugo Lebredo Bujan</a> (<span class="p-org org">University of Oviedo</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://uniovi.es">Irece Cid Rico</a> (<span class="p-org org">University of Oviedo</span>)
@@ -1488,7 +1429,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 10 March 2020,
+In addition, as of 21 March 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1507,8 +1448,6 @@ Parts of this work may be from another specification document.  If so, those par
      <ol class="toc">
       <li><a href="#definitions"><span class="secno">1.1</span> <span class="content">Definitions</span></a>
       <li><a href="#namespaces"><span class="secno">1.2</span> <span class="content">Namespaces</span></a>
-      <li><a href="#dataModel"><span class="secno">1.3</span> <span class="content">Data model</span></a>
-      <li><a href="#gpx"><span class="secno">1.4</span> <span class="content">GPX Routes</span></a>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
@@ -1522,14 +1461,12 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
-    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
    <h3 class="heading settled" id="status"><span class="content">Status of This Document</span></h3>
     <strong>This document is an incomplete draft.</strong> 
    <p>You are invited to <a href="https://github.com/arquisoft/viadeSpec/issues">contribute</a> any feedback, comments, or questions you might have.</p>
-   <p>Reference to <a data-link-type="biblio" href="#biblio-gpx">[GPX]</a></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>The VIADE data model contains a specification for a common data model to represent routes in RDF inside Solid
  data Pods. The data model has been prepared by the teachers and students of 
@@ -1578,365 +1515,6 @@ that reads or writes data from one or more <a data-link-type="dfn" href="#data-p
       <td>http://arquisoft.github.io/viadeSpec/
       <td>Viade specification
    </table>
-   <h3 class="heading settled" data-level="1.3" id="dataModel"><span class="secno">1.3. </span><span class="content">Data model</span><a class="self-link" href="#dataModel"></a></h3>
-   <p class="note" role="note"><span>Note:</span> This data model is a proposal made by the students and teachers of the <a href="http://arquisoft.github.io">Software Architecture</a> Course (edition 2019/20) at the University of Oviedo.
- The data model is work-in-progress and we appreciate any feedback which can be done by <a href="https://arquisoft.github.io/viadeSpec/">raising issues</a>.</p>
-   <p>A <strong>route</strong> must contain a name, optionally it can have a description.
-Its composed by a list of points which must conform be GeoCoordinates 
-and may or not have a list of comments and media elements.</p>
-   <p>The <strong>GeoCoordinates</strong> must have latitude and longitude.
-They can have as optional properties a name, altitude and a physical address.</p>
-   <p>A <strong>UserComment</strong> must contain the text of the comment,
- the time it was published and the author, 
- being the last one an IRI to a pod profile shape.</p>
-   <p>And finally, an <strong>Image</strong> or a <strong>Video</strong> must have an IRI to be a resource,
- another IRI to the pod profile of the author and the time it was published.</p>
-   <p class="issue" id="issue-01f02f31"><a class="self-link" href="#issue-01f02f31"></a> Should we deprecate the <code>viade:points</code> property? <a href="https://github.com/Arquisoft/viadeSpec/issues/19">Issue 19</a></p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->  <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
-<c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
-<c- k>prefix</c-> <c- nn>rdfs:</c->   <c- g>&lt;http://www.w3.org/2000/01/rdf-schema#></c->
-<c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
-<c- k>prefix</c-> <c- nn>rdf:</c->    <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
-<c- k>prefix</c-> <c- nn>gpx:</c->    <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
-
-import <c- g>&lt;gpx.shex></c->
-
-<c- c># Represents a route</c->
-<c- nn>:</c-><c- f>Route</c-> <c- p>{</c->
- <c- b>a</c->                      <c- p>[</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>]</c-> <c- p>;</c->
- <c- nn>schema:</c-><c- f>name</c->            <c- nn>xsd:</c-><c- f>string</c->   <c- p>;</c->
- <c- nn>schema:</c-><c- f>description</c->     <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>:</c-><c- f>points</c->                @<c- nn>:</c-><c- f>Points</c-> <c- p>;</c->     
- <c- nn>:</c-><c- f>gpx</c->                   @<c- nn>:</c-><c- f>GPXRoute</c-> <c- p>;</c-> 
- <c- nn>:</c-><c- f>hasComments</c->           <c- nn>xsd:</c-><c- f>string</c-> OR @<c- nn>:</c-><c- f>UserComment</c-> * <c- p>;</c->
- <c- nn>:</c-><c- f>hasMediaAttached</c->      @<c- nn>:</c-><c- f>Image</c-> OR @<c- nn>:</c-><c- f>Video</c-> *<c- p>;</c->
-<c- p>}</c->
-
-<c- c># RDF List of points of a route    </c->
-<c- nn>:</c-><c- f>Points</c-> <c- p>[</c-><c- nn>rdf:</c-><c- f>nil</c-><c- p>]</c-> OR CLOSED <c- p>{</c->
-   <c- nn>rdf:</c-><c- f>first</c-> @<c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>;</c->
-   <c- nn>rdf:</c-><c- f>rest</c->  @<c- nn>:</c-><c- f>Points</c->
-<c- p>}</c->
-    
-<c- c># Represents geo coordinates following: https://schema.org/GeoCoordinates</c->
-<c- nn>:</c-><c- f>GeoCoordinates</c-> <c- p>{</c->
- <c- nn>schema:</c-><c- f>name</c->         <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
- <c- nn>schema:</c-><c- f>description</c->  <c- nn>xsd:</c-><c- f>string</c->  ? <c- p>;</c->
- <c- nn>schema:</c-><c- f>elevation</c->    <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>schema:</c-><c- f>latitude</c->     <c- nn>xsd:</c-><c- f>decimal</c->   <c- p>;</c->
- <c- nn>schema:</c-><c- f>longitude</c->    <c- nn>xsd:</c-><c- f>decimal</c->   <c- p>;</c->
-<c- p>}</c->
-
-<c- nn>:</c-><c- f>UserComment</c-> IRI <c- p>{</c->
- <c- nn>schema:</c-><c- f>text</c->          <c- nn>xsd:</c-><c- f>string</c-><c- p>;</c->
- <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-> <c- p>;</c->
- <c- nn>schema:</c-><c- f>author</c->        @<c- nn>:</c-><c- f>PodProfile</c-> <c- p>;</c->
-<c- p>}</c->
-
-<c- nn>:</c-><c- f>Image</c-> <c- p>{</c->
- <c- nn>schema:</c-><c- f>contentUrl</c->    IRI <c- p>;</c->
- <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>datetime</c-><c- p>;</c->
- <c- nn>schema:</c-><c- f>author</c->        @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
-<c- p>}</c->
-
-<c- nn>:</c-><c- f>Video</c-> <c- p>{</c->
- <c- nn>schema:</c-><c- f>contentUrl</c->    IRI<c- p>;</c->
- <c- nn>schema:</c-><c- f>publishedDate</c-> <c- nn>xsd:</c-><c- f>dateTime</c-><c- p>;</c->
- <c- nn>schema:</c-><c- f>author</c->        @<c- nn>:</c-><c- f>PodProfile</c-><c- p>;</c->
-<c- p>}</c->
-
-<c- nn>:</c-><c- f>PodProfile</c-> IRI 
-
-<c- nn>:</c-><c- f>GPXRoute</c-> <c- nn>:</c-><c- f>inlineGPX</c-> OR <c- nn>gpx:</c-><c- f>gpxType</c-> <c- p>.</c->
-
-<c- c># Represents GPX routes as XML literals without conversion</c->
-<c- nn>:</c-><c- f>inlineGPX</c-> <c- p>{</c->
-  <c- nn>:</c-><c- f>source</c-> <c- nn>rdf:</c-><c- f>XMLLiteral</c-> <c- p>;</c->
-<c- p>}</c->
-</pre>
-   <h4 class="heading settled" data-level="1.3.1" id="SimpleRouteExamples"><span class="secno">1.3.1. </span><span class="content">Simple routes examples</span><a class="self-link" href="#SimpleRouteExamples"></a></h4>
-   <p>An example of a route in Turtle following the previous Shape could be:</p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>viade:</c->  <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
-<c- k>prefix</c-> <c- nn>:</c->       <c- g>&lt;http://example.org/></c->
-<c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
-<c- k>prefix</c-> <c- nn>rdfs:</c->   <c- g>&lt;http://www.w3.org/2000/01/rdf-schema#></c->
-<c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
-
-<c- nn>:</c-><c- f>myRoute</c-> <c- b>a</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>;</c->
- <c- nn>schema:</c-><c- f>name</c-> <c- s>"My first route"</c-> <c- p>;</c->
- <c- nn>schema:</c-><c- f>description</c-> <c- s>"This is an example of route"</c-> <c- p>;</c->
- <c- nn>viade:</c-><c- f>points</c-> <c- p>(</c-> 
-  <c- p>[</c-> <c- nn>schema:</c-><c- f>latitude</c-> <c- mf>47.644548</c-> <c- p>;</c-> <c- nn>schema:</c-><c- f>longitude</c-> <c- mf>-122.326897</c-> <c- p>]</c->
-  <c- p>[</c-> <c- nn>schema:</c-><c- f>latitude</c-> <c- mf>47.644532</c-> <c- p>;</c-> <c- nn>schema:</c-><c- f>longitude</c-> <c- mf>-123.3345</c-> <c- p>]</c->
- <c- p>);</c->
- <c- nn>viade:</c-><c- f>hasComments</c-> <c- s>"I really enjoyed this route"</c-> <c- p>;</c->
- <c- nn>viade:</c-><c- f>hasMediaAttached</c-> <c- nn>:</c-><c- f>media1</c-> <c- p>.</c->
-
-<c- nn>:</c-><c- f>media1</c-> <c- nn>schema:</c-><c- f>contentUrl</c-> <c- g>&lt;http://example.org/picture.jpg></c-> <c- p>;</c->
-        <c- nn>schema:</c-><c- f>publishedDate</c-> <c- s>"2020-03-26T21:32:52"</c-><c- o>^^</c->xsd:dateTime <c- p>;</c->
-        <c- nn>schema:</c-><c- f>author</c-> <c- g>&lt;https://labra.solid.community/profile/card#me></c-> <c- p>.</c->
-</pre>
-   <p>You can run the example using the <a href="https://tinyurl.com/uvhr33f">RDFShape tool</a></p>
-   <h3 class="heading settled" data-level="1.4" id="gpx"><span class="secno">1.4. </span><span class="content">GPX Routes</span><a class="self-link" href="#gpx"></a></h3>
-   <p><a data-link-type="biblio" href="#biblio-gpx">[GPX]</a> is a popular XML format that could be used to represent routes. There are two possibilities: to convert the XML format to Turtle or
- to embed the XML file as an RDF literal.</p>
-   <h4 class="heading settled" data-level="1.4.1" id="gpxTurtle"><span class="secno">1.4.1. </span><span class="content">GPX Routes converted to Turtle</span><a class="self-link" href="#gpxTurtle"></a></h4>
-   <p>GPX routes can be represented in Turtle using the following Shape Expression:</p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->    <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
-<c- k>prefix</c-> <c- nn>rdf:</c-> <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
-<c- k>prefix</c-> <c- nn>gpx:</c-> <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
-<c- k>prefix</c-> <c- nn>xsd:</c-> <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
-
-
-<c- c># This document contains a ShEx representation of the XML Schema defined for GPX </c->
-<c- c># The original schema URI is &lt;http://www.topografix.com/GPX/1/1></c->
-
-start = @<c- nn>:</c-><c- f>gpxType</c->
-
-<c- c># GPX documents contain a metadata header, followed by waypoints, routes, and tracks. </c->
-<c- c># You can add your own elements to the extensions section of the GPX document</c->
-<c- nn>:</c-><c- f>gpxType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>creator</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>version</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->  
- <c- nn>gpx:</c-><c- f>metadata</c->   @<c- nn>:</c-><c- f>metadataType</c-> ? <c- p>;</c->  
- <c- nn>gpx:</c-><c- f>wpt</c->        @<c- nn>:</c-><c- f>wptType</c-> * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>rte</c->        @<c- nn>:</c-><c- f>rteType</c-> * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>trk</c->        @<c- nn>:</c-><c- f>trkType</c-> * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ?
-<c- p>}</c-> 
-
-<c- c># Information about the GPX file, author, and copyright restrictions goes in the metadata section. </c->
-<c- c># Providing rich, meaningful information about your GPX files allows others to search for and use your GPS data.</c->
-<c- nn>:</c-><c- f>metadataType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>name</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>desc</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>author</c->     @<c- nn>:</c-><c- f>personType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>copyright</c->  @<c- nn>:</c-><c- f>copyrightType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>link</c->       @<c- nn>:</c-><c- f>linkType</c-> * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>time</c->       <c- nn>xsd:</c-><c- f>dateTime</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>keywords</c->   <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>bounds</c->     @<c- nn>:</c-><c- f>boundsType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ?
-<c- p>}</c->
-
-<c- c># wpt represents a waypoint, point of interest, or named feature on a map</c->
-<c- nn>:</c-><c- f>wptType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>lat</c->           @<c- nn>:</c-><c- f>latitudeType</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>lon</c->           @<c- nn>:</c-><c- f>longitudeType</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>ele</c->           <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>time</c->          <c- nn>xsd:</c-><c- f>dateTime</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>magvar</c->        @<c- nn>:</c-><c- f>degreesType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>geoidheight</c->   <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>name</c->          <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>cmt</c->           <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>desc</c->          <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>src</c->           <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>link</c->          @<c- nn>:</c-><c- f>linkType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>sym</c->           <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>type</c->          <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>fix</c->           @<c- nn>:</c-><c- f>fixType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>sat</c->           <c- nn>xsd:</c-><c- f>nonNegativeInteger</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>hdop</c->          <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>vdop</c->          <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>pdop</c->          <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>ageofdgpsdata</c-> <c- nn>xsd:</c-><c- f>decimal</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>dgpsid</c->        @<c- nn>:</c-><c- f>dgpsStationType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c->    @<c- nn>:</c-><c- f>extensionsType</c-> ?
-<c- p>}</c->
-
-<c- c># rte represents route - an ordered list of waypoints representing a series of turn points leading to a destination</c->
-<c- nn>:</c-><c- f>rteType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>name</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>cmt</c->        <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>desc</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>src</c->        <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>link</c->       @<c- nn>:</c-><c- f>linkType</c-> * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>number</c->     <c- nn>xsd:</c-><c- f>nonNegativeInteger</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>type</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>rtept</c->      @<c- nn>:</c-><c- f>wptTypeList</c->
-<c- p>}</c->
-
-<c- nn>:</c-><c- f>wptTypeList</c-> <c- p>[</c-> <c- nn>rdf:</c-><c- f>nil</c-> <c- p>]</c-> OR CLOSED <c- p>{</c->
- <c- nn>rdf:</c-><c- f>first</c-> <c- p>{</c-> <c- nn>gpx:</c-><c- f>trkpt</c-> @<c- nn>:</c-><c- f>wptType</c-> <c- p>}</c-> <c- p>;</c->
- <c- nn>rdf:</c-><c- f>rest</c->  @<c- nn>:</c-><c- f>wptTypeList</c->
-<c- p>}</c->
-
-<c- c># trk represents a track - an ordered list of points describing a path</c->
-<c- nn>:</c-><c- f>trkType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>name</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>cmt</c->        <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>desc</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>src</c->        <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>link</c->       @<c- nn>:</c-><c- f>linkType</c-> * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>number</c->     <c- nn>xsd:</c-><c- f>nonNegativeInteger</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>type</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>trkseg</c->     @<c- nn>:</c-><c- f>trksegType</c-> *
-<c- p>}</c->
-
-<c- c># Allow any elements from a namespace other than this schema’s namespace </c->
-<c- nn>:</c-><c- f>extensionsType</c-> <c- p>{</c->
-<c- p>}</c->
-
-<c- c># A Track Segment holds a list of Track Points which are logically connected in order. </c->
-<c- c># To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, </c->
-<c- c># start a new Track Segment for each continuous span of track data.</c->
-<c- nn>:</c-><c- f>trksegType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>trkpts</c->     @<c- nn>:</c-><c- f>wptTypeList</c->    * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ? 
-<c- p>}</c->
-
-<c- c># Information about the copyright holder and any license governing use of this file. </c->
-<c- c># By linking to an appropriate license, you may place your data into the public domain or grant additional usage rights.</c->
-<c- nn>:</c-><c- f>copyrightType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>author</c->  <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>year</c->    <c- nn>xsd:</c-><c- f>gYear</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>license</c-> <c- nn>xsd:</c-><c- f>anyURI</c-> ?
-<c- p>}</c->
-
-<c- c># A link to an external resource (Web page, digital photo, video clip, etc) with additional information</c->
-<c- nn>:</c-><c- f>linkType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>href</c-> <c- nn>xsd:</c-><c- f>anyURI</c->   <c- p>;</c->
- <c- nn>gpx:</c-><c- f>text</c-> <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>type</c-> <c- nn>xsd:</c-><c- f>string</c-> ?   
-<c- p>}</c->
-
-<c- c># An email address. Broken into two parts (id and domain) to help prevent email harvesting.</c->
-<c- nn>:</c-><c- f>emailType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>id</c->     <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>domain</c-> <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->   
-<c- p>}</c->
-
-<c- c># A person or organization.</c->
-<c- nn>:</c-><c- f>personType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>name</c->   <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>email</c->  @<c- nn>:</c-><c- f>emailType</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>link</c->   @<c- nn>:</c-><c- f>linkType</c-> 
-<c- p>}</c->
-
-<c- c># A geographic point with optional elevation and time. Available for use by other schemas.</c->
-<c- nn>:</c-><c- f>ptType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>lat</c->  @<c- nn>:</c-><c- f>latitudeType</c->    <c- p>;</c->
- <c- nn>gpx:</c-><c- f>long</c-> @<c- nn>:</c-><c- f>longitudeType</c->   <c- p>;</c->
- <c- nn>gpx:</c-><c- f>ele</c->  <c- nn>xsd:</c-><c- f>decimal</c->     ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>time</c-> <c- nn>xsd:</c-><c- f>dateTime</c->    ?
-<c- p>}</c->
-
-<c- c># An ordered sequence of points. (for polygons or polylines, e.g.)</c->
-<c- nn>:</c-><c- f>ptsegType</c-> <c- p>[</c-><c- nn>rdf:</c-><c- f>nil</c-><c- p>]</c-> OR CLOSED <c- p>{</c->
- <c- nn>rdf:</c-><c- f>first</c-> <c- p>{</c-> <c- nn>gpx:</c-><c- f>pt</c-> @<c- nn>:</c-><c- f>ptType</c-> <c- p>}</c-> <c- p>;</c->
- <c- nn>rdf:</c-><c- f>rest</c->  @<c- nn>:</c-><c- f>ptsegType</c-> <c- p>;</c->
-<c- p>}</c->
-
-<c- c># Two lat/lon pairs defining the extent of an element.</c->
-<c- nn>:</c-><c- f>boundsType</c-> <c- p>{</c->
- <c- nn>gpx:</c-><c- f>minlat</c-> @<c- nn>:</c-><c- f>latitudeType</c->  <c- p>;</c->
- <c- nn>gpx:</c-><c- f>minlon</c-> @<c- nn>:</c-><c- f>longitudeType</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>maxlat</c-> @<c- nn>:</c-><c- f>latitudeType</c->  <c- p>;</c->
- <c- nn>gpx:</c-><c- f>maxlon</c-> @<c- nn>:</c-><c- f>longitudeType</c->    
-<c- p>}</c->
-
-<c- c># The latitude of the point. Decimal degrees, WGS84 datum</c->
-<c- nn>:</c-><c- f>latitudeType</c-> <c- nn>xsd:</c-><c- f>decimal</c-> minInclusive <c- mf>-90.0</c-> maxInclusive <c- mf>90.0</c->
-
-<c- c># The longitude of the point. Decimal degrees, WGS84 datum.</c->
-<c- nn>:</c-><c- f>longitudeType</c-> <c- nn>xsd:</c-><c- f>decimal</c-> minInclusive <c- mf>-180.0</c-> maxInclusive <c- mf>180.0</c->
-
-<c- c># Used for bearing, heading, course. Units are decimal degrees, true (not magnetic).</c->
-<c- nn>:</c-><c- f>degreesType</c-> <c- nn>xsd:</c-><c- f>decimal</c-> minInclusive <c- mf>0.0</c-> maxInclusive <c- mf>360.0</c->
-
-<c- c># Type of GPS fix. none means GPS had no fix. To signify "the fix info is unknown, leave out fixType entirely. pps = military signal used</c->
-<c- nn>:</c-><c- f>fixType</c-> <c- p>[</c-> <c- s>"none"</c-> <c- s>"2d"</c-> <c- s>"3d"</c-> <c- s>"dgps"</c-> <c- s>"pps"</c-> <c- p>]</c->
-
-<c- c># Represents a differential GPS station.</c->
-<c- nn>:</c-><c- f>dgpsStationType</c-> <c- nn>xsd:</c-><c- f>integer</c-> minInclusive <c- mi>0</c-> maxInclusive <c- mi>1023</c->
-</pre>
-   <h4 class="heading settled" data-level="1.4.2" id="gpxExampleTurtle"><span class="secno">1.4.2. </span><span class="content">GPX Route example as Turtle</span><a class="self-link" href="#gpxExampleTurtle"></a></h4>
-   <p>As an example a VIADE route represented using GPX as Turtle could be:</p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c-> 
-<c- k>prefix</c-> <c- nn>viade:</c-> <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
-<c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
-<c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
-<c- k>prefix</c-> <c- nn>gpx:</c->   <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
-
-<c- nn>:</c-><c- f>exampleRoute</c-> <c- b>a</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>;</c->
- <c- nn>schema:</c-><c- f>name</c->   <c- s>"A nice walk"</c-> <c- p>;</c->
- <c- nn>viade:</c-><c- f>gpx</c-> <c- p>[</c-> 
-  <c- nn>gpx:</c-><c- f>creator</c->  <c- s>"Oregon 400t"</c-> <c- p>;</c->
-  <c- nn>gpx:</c-><c- f>version</c->   <c- s>"1.1"</c-><c- p>;</c->
-  <c- nn>gpx:</c-><c- f>metadata</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>link</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>href</c->  <c- s>"http://www.garmin.com"</c-> <c- p>;</c->
-                                    <c- nn>gpx:</c-><c- f>text</c->  <c- s>"Garmin International"</c->
-                                  <c- p>]</c-> <c- p>;</c->
-                  <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T22:58:43Z"</c-><c- o>^^</c->xsd:dateTime
-        <c- p>]</c-> <c- p>;</c->
-  <c- nn>gpx:</c-><c- f>trk</c-> <c- p>[</c-> <c- nn>gpx:</c-><c- f>name</c->    <c- s>"Example GPX Document"</c-> <c- p>;</c->
-            <c- nn>gpx:</c-><c- f>trkseg</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpts</c->  <c- p>(</c-> <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>4.46</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:26Z"</c-><c- o>^^</c->xsd:dateTime
-                                                     <c- p>]</c-> <c- p>]</c->
-                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> 
-                                                       <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>4.94</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:31Z"</c-><c- o>^^</c->xsd:dateTime
-                                                    <c- p>]</c-> <c- p>]</c->
-                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> 
-                                                       <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>6.87</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
-                                                       <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:34Z"</c-><c- o>^^</c->xsd:dateTime
-                                                    <c- p>]</c-> <c- p>]</c->
-                                        <c- p>)</c-> <c- p>]</c->
-            <c- p>]</c-> 
- <c- p>]</c->
-<c- p>.</c-> 
-</pre>
-   <h4 class="heading settled" data-level="1.4.3" id="GPXRoutesAsLiterals"><span class="secno">1.4.3. </span><span class="content">GPX routes embedded as literals</span><a class="self-link" href="#GPXRoutesAsLiterals"></a></h4>
-   <p>It is also possible to represent the routes embedding the XML content as an RDF literal.</p>
-   <p>The following example contains a GPX route embedded as an RDF literal.</p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c-> 
-<c- k>prefix</c-> <c- nn>rdf:</c->   <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
-<c- k>prefix</c-> <c- nn>viade:</c-> <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
-<c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
-<c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
-<c- k>prefix</c-> <c- nn>gpx:</c->   <c- g>&lt;https://www.w3.org/ns/pim/gpx#></c->
-
-<c- nn>:</c-><c- f>exampleRoute</c-> <c- b>a</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>;</c->
- <c- nn>schema:</c-><c- f>name</c->   <c- s>"A nice walk"</c-> <c- p>;</c->
- <c- nn>viade:</c-><c- f>gpx</c-> <c- p>[</c->
-     <c- nn>viade:</c-><c- f>source</c-> <c- s>"""&lt;gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="Oregon 400t" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd"></c->
-<c- s>  &lt;metadata></c->
-<c- s>    &lt;link href="http://www.garmin.com"></c->
-<c- s>      &lt;text>Garmin International&lt;/text></c->
-<c- s>    &lt;/link></c->
-<c- s>    &lt;time>2009-10-17T22:58:43Z&lt;/time></c->
-<c- s>  &lt;/metadata></c->
-<c- s>  &lt;trk></c->
-<c- s>    &lt;name>Example GPX Document&lt;/name></c->
-<c- s>    &lt;trkseg></c->
-<c- s>      &lt;trkpt lat="47.644548" lon="-122.326897"></c->
-<c- s>        &lt;ele>4.46&lt;/ele></c->
-<c- s>        &lt;time>2009-10-17T18:37:26Z&lt;/time></c->
-<c- s>      &lt;/trkpt></c->
-<c- s>      &lt;trkpt lat="47.644548" lon="-122.326897"></c->
-<c- s>        &lt;ele>4.94&lt;/ele></c->
-<c- s>        &lt;time>2009-10-17T18:37:31Z&lt;/time></c->
-<c- s>      &lt;/trkpt></c->
-<c- s>      &lt;trkpt lat="47.644548" lon="-122.326897"></c->
-<c- s>        &lt;ele>6.87&lt;/ele></c->
-<c- s>        &lt;time>2009-10-17T18:37:34Z&lt;/time></c->
-<c- s>      &lt;/trkpt></c->
-<c- s>    &lt;/trkseg></c->
-<c- s>  &lt;/trk></c->
-<c- s> &lt;/gpx>"""^^rdf:XMLLiteral ;</c->
-<c- s> ]</c->
-<c- s>. </c->
-</pre>
-   <h4 class="heading settled" data-level="1.4.4" id="gpx2RDF"><span class="secno">1.4.4. </span><span class="content">GPX to RDF converters</span><a class="self-link" href="#gpx2RDF"></a></h4>
-   <p>It is possible to convert from GPX files in XML to RDF files in RDF/XML using the
- following <a href="https://github.com/Arquisoft/viadeSpec/blob/master/converters/gpx2rdf.xslt">XSLT file</a></p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2101,16 +1679,12 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-gpx">[GPX]
-   <dd><a href="https://www.topografix.com/gpx">GPX schema version 1.1</a>. URL: <a href="https://www.topografix.com/gpx">https://www.topografix.com/gpx</a>
+   <dd><a href=" https://www.topografix.com/gpx">GPX schema version 1.1</a>. URL: <a href=" https://www.topografix.com/gpx"> https://www.topografix.com/gpx</a>
    <dt id="biblio-ldp">[LDP]
    <dd>Steve Speicher; John Arwe; Ashok Malhotra. <a href="https://www.w3.org/TR/ldp/">Linked Data Platform 1.0</a>. 26 February 2015. REC. URL: <a href="https://www.w3.org/TR/ldp/">https://www.w3.org/TR/ldp/</a>
    <dt id="biblio-rdf-schema">[RDF-SCHEMA]
    <dd>Dan Brickley; Ramanathan Guha. <a href="https://www.w3.org/TR/rdf-schema/">RDF Schema 1.1</a>. 25 February 2014. REC. URL: <a href="https://www.w3.org/TR/rdf-schema/">https://www.w3.org/TR/rdf-schema/</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
-  <div style="counter-reset:issue">
-   <div class="issue"> Should we deprecate the <code>viade:points</code> property? <a href="https://github.com/Arquisoft/viadeSpec/issues/19">Issue 19</a><a href="#issue-01f02f31"> ↵ </a></div>
-  </div>
   <aside class="dfn-panel" data-for="data-pod">
    <b><a href="#data-pod">#data-pod</a></b><b>Referenced in:</b>
    <ul>

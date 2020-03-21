@@ -26,62 +26,46 @@ prefix schema: <http://schema.org/>
 prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
 prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix gpx:    <https://www.w3.org/ns/pim/gpx#>
-
-import <gpx.shex>
 
 # Represents a route
 :Route {
- a                      [ viade:Route ] ;
- schema:name            xsd:string	 ;
- schema:description     xsd:string ? ;
- :points                @:Points ;     
- :gpx                   @:GPXRoute ; 
- :hasComments           xsd:string OR @:UserComment * ;
- :hasMediaAttached      @:Image OR @:Video *;
+	schema:name		      xsd:string	 ;
+	schema:description	xsd:string ? ;
+	:point	            @:Point * ;
+	:hasComments		    xsd:string OR @:UserComment * ;
+	:hasMediaAttached	  @:Image OR @:Video *;
 }
 
-# RDF List of points of a route    
-:Points [rdf:nil] OR CLOSED {
-   rdf:first @:GeoCoordinates ;
-   rdf:rest  @:Points
+:Point @:GeoCoordinates AND {
+   :order xsd:integer ;
 }
     
 # Represents geo coordinates following: https://schema.org/GeoCoordinates
 :GeoCoordinates {
- schema:name         xsd:string  ? ;
- schema:description  xsd:string  ? ;
- schema:elevation    xsd:decimal ? ;
- schema:latitude     xsd:decimal   ;
- schema:longitude    xsd:decimal   ;
+	schema:latitude			xsd:decimal	;
+	schema:longitude		xsd:decimal	;
+	schema:elevation		xsd:decimal  ? ;
 }
 
 :UserComment IRI {
- schema:text          xsd:string;
- schema:publishedDate xsd:datetime ;
- schema:author        @:PodProfile ;
+	schema:text			 xsd:string;
+	schema:publishedDate xsd:datetime;
+	schema:author		 @:PodProfile;
 }
 
 :Image {
- schema:contentUrl    IRI ;
- schema:publishedDate xsd:datetime;
- schema:author        @:PodProfile;
+	schema:contentUrl	 IRI ;
+	schema:publishedDate xsd:datetime;
+	schema:author		 @:PodProfile;
 }
 
 :Video {
- schema:contentUrl    IRI;
- schema:publishedDate xsd:dateTime;
- schema:author        @:PodProfile;
+	schema:contentUrl	 IRI;
+	schema:publishedDate xsd:dateTime;
+	schema:author		 @:PodProfile;
 }
 
 :PodProfile IRI 
-
-:GPXRoute :inlineGPX OR gpx:gpxType .
-
-# Represents GPX routes as XML literals without conversion
-:inlineGPX {
-  :source rdf:XMLLiteral ;
-}
 </xmp>
 
 ### Simple routes examples ### {#SimpleRouteExamples}
@@ -98,10 +82,17 @@ prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
 :myRoute a viade:Route ;
  schema:name "My first route" ;
  schema:description "This is an example of route" ;
- viade:points ( 
-  [ schema:latitude 47.644548 ; schema:longitude -122.326897 ]
-  [ schema:latitude 47.644532 ; schema:longitude -123.3345 ]
- );
+ viade:point [ 
+  schema:latitude 47.64458 ; 
+  schema:longitude -122.326897 ; 
+  viade:order 1 
+ ] ;
+ viade:point [ 
+  schema:latitude 47.644532; 
+  schema:longitude -123.3345 ; 
+  viade:order 2; 
+  schema:elevation 34 
+ ]; 
  viade:hasComments "I really enjoyed this route" ;
  viade:hasMediaAttached :media1 .
 
@@ -110,5 +101,24 @@ prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
         schema:author <https://labra.solid.community/profile/card#me> .
 </xmp>
 
-You can run the example using the [RDFShape tool](https://tinyurl.com/uvhr33f) 
+You can run the example using the [RDFShape tool](https://tinyurl.com/wx4fdhd) 
+
+A possible SPARQL query to retrieve the route information and it's points can be:
+
+<xmp highlight="turtle">
+PREFIX schema: <http://schema.org/>
+PREFIX viade:<http://arquisoft.github.io/viadeSpec/>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?lat ?long ?order ?name ?description ?name ?elevation WHERE {
+ ?route a viade:Route.
+ ?route viade:point ?point .
+ ?point schema:latitude ?lat ;
+        schema:longitude ?long ;
+        viade:order ?order.
+OPTIONAL {?route schema:description ?description.}
+OPTIONAL {?route schema:name ?name.}
+OPTIONAL {?point schema:elevation ?elevation.}
+}
+</xmp>
 

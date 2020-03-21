@@ -22,7 +22,6 @@ Abstract:
 You are invited to [contribute](https://github.com/arquisoft/viadeSpec/issues)
 any feedback, comments, or questions you might have.
 
-<pre class=include>path: introduction.bs</pre>
 <pre class=biblio>
 {
 	"GPX": {
@@ -31,4 +30,7 @@ any feedback, comments, or questions you might have.
 	}
 }
 </pre>
+<pre class=include>path: introduction.bs</pre>
+<pre class=include>path: dataModel.bs</pre>
+<pre class=include>path: gpx.bs</pre>
 

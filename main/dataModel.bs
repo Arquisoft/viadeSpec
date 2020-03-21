@@ -17,9 +17,6 @@ A **UserComment** must contain the text of the comment,
 And finally, an **Image** or a **Video** must have an IRI to be a resource, 
  another IRI to the pod profile of the author and the time it was published.
 
-
-Issue: Should we deprecate the <code>viade:points</code> property? [Issue 19](https://github.com/Arquisoft/viadeSpec/issues/19)
-
 <xmp highlight="turtle">
 prefix :  <http://arquisoft.github.io/viadeSpec/>
 prefix schema: <http://schema.org/>
@@ -32,6 +29,7 @@ prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 	schema:name		      xsd:string	 ;
 	schema:description	xsd:string ? ;
 	:point	            @:Point * ;
+  :gpx                @:GPXShape ;  // See ShEx description for GPX Routes
 	:hasComments		    xsd:string OR @:UserComment * ;
 	:hasMediaAttached	  @:Image OR @:Video *;
 }
@@ -66,6 +64,9 @@ prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 }
 
 :PodProfile IRI 
+
+# This model is work-in progress
+:GPXShape {}   // See GPX section
 </xmp>
 
 ### Simple routes examples ### {#SimpleRouteExamples}

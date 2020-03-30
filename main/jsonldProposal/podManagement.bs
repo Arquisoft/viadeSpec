@@ -27,7 +27,7 @@ The following properties can be found:
 The example (if any error is seen in the context, please point it out):
 
 _If it cannot be seen in the include please check it manually because afterwards there will be mentions about it._
-<pre class="include">path: jsonldExample.json</pre>
+<pre class="include">path: jsonldProposal/jsonldExample.json</pre>
 
 ## Directory hierarchy in the POD ##
 Not only we need to state what information should be in the pod, but also where it is located.

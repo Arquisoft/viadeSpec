@@ -1,0 +1,33 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "comments": {
+            "@container": "@list",
+            "@id": "viade:comments"
+        },
+        "comment":{
+            "@id": "viade:comment",
+            "@type": "@id"
+        },
+        "viade": "http://arquisoft.github.io/viadeSpec/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "comments": [
+        {
+            "@id": "userCommentStructure.json"
+        },
+        {
+            "@id": "http://inrupt.luispc1998/viade//image/imagen.jpg"
+        },
+        {
+            "@id": "http://inrupt.angelixus/routeMedia/image/video.mp4"
+        },
+        {
+            "@id": "http://inrupt.raupemol/routeMedia/video/foto.png"
+        },
+        {
+            "@id": "http://inrupt.luispc1998/routeMedia/video/video3.mp4"
+        }
+    ]
+
+}

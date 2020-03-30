@@ -1,0 +1,20 @@
+{
+    "@context": {
+        "@version": 1.1,
+
+        "viade": "http://arquisoft.github.io/viadeSpec/",
+        "schema": "http://schema.org/",
+
+        "dateCreated": {
+            "@id": "viade:dateCreated",
+            "@type": "xsd:date"
+        },
+        "text": {
+            "@id": "viade:text",
+            "@type": "xsd:string"
+        }
+    },
+    "text": "This is just a example !!",
+    "dateCreated": "2004-04-12" 
+
+}

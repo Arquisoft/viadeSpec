@@ -13,10 +13,16 @@ it won't be a problem to handle that in the application, in fact Javascript faci
 What comes next is an example of the **minimum** data that should be stored in the pod with the JSON-LD. More data could be added by our apps,
 but at least this should be there. 
 
-_If the minimun data is wanted to be modified, for instance adding "Elevation" to the points, which would be something
-quite common, then follow the repo rules to propose a change._
+The following properties can be found:
 
-In the example provided, a route has name, description, points, comments and resources. Those two are references, since they may be in other PODs.
+* name: the name of the route
+* author: the webId of the creator of the route (optional)
+* description: a description of the route (optional)
+* waypoints: a list of waypoints (optional)
+* points: points of the route, describing the path
+* comments: a link (@id) to a file related with the route where the links to the users comments will be stored.
+* resources: a list of links to resources.
+
 
 The example (if any error is seen in the context, please point it out):
 
@@ -26,7 +32,7 @@ _If it cannot be seen in the include please check it manually because afterwards
 ## Directory hierarchy in the POD ##
 Not only we need to state what information should be in the pod, but also where it is located.
 
-We proposed a "viade" folder in the root of the pod, and inside it three folders: routes, comments, resources. This could be more visual.
+We proposed a "viade" folder in the root of the pod, and inside it three folders: routes, comments, resources. 
 
 <pre>
 
@@ -39,8 +45,13 @@ viade/
 
 		comments/
 
-			comment1.txt
-			comment2.txt
+			myComments/
+				userComment.jsonld
+				userComment2.jsonld
+
+			routeComments/
+				ruta1Comments.jsonld
+				ruta2Comments.jsonld
 
 		resources/
 
@@ -57,12 +68,30 @@ be referenced from other routes (it is a graph, the file will be in many places)
 We are considering two different folders even though they are just references because the way we would treat them, we may even not display those two groups
 at the same time.
 
+
+Due to the fact that we should allow other users to comment the routes, but we cannot let them edit the route file that leaded to the following approach.
+Routes should have a link to a file that stores links to the comments of the users that commented. Consider the following example:
+
+Luis published a route long ago, and now he shared it with his friend Sara. Sara wants to comment it. The application will create the comment in Sara's POD, because it's 
+her comment, and it will read from the route file its assigned file to comment (We are on Luis' POD), there it will write a link to Sara's comment in Sara's POD. These process
+need to divide the comments folder into two subfolders: myComments and routeComments.
+
+myComments will store the user's comments, in our previous example, Sara will write her comment in the directory viade/comments/myComments/ of her POD.
+
+routeComments will store the files related with the routes, that have the links to the comments. In our previous example, Sara's app client will read in the shared route and locate
+the comments file that will be in the directory viade/comments/routeComments/..., it will be a jsonLD file, and she will add here the link to the comment in her pod.
+
+
 ## How to share ##
 The simplest idea for this seems to handle the permissions of the route files and when sharing a route give the "reciever" permissions to read the route file.
 
-## What should be done about GPX? #
+## What should be done about GPX? ##
 A gpx file can contain several elements "trk" which are the ones that match our concept of "Route", that is a path, a sequence of points. Inside this label we can have
 several "tkrseg", which stand as sequences of oredered points (trkpt). Our duty will be to take all the tkrpt and put them inside the "viade:points" property of the example json.
 
 The gpx trk label can have a name and a description so it could be direct translation. Or we may want the user to introduce that data, that's an app design decision.
+
+There is a type of points in a GPX called "waypoints", they are relevant points that are in some way related to the specified tracks. Assuming a path across a city,
+a waypoint can be a church, a restaurant, a monument, and so far so forth. We will include this points in our routes jsonld files. They will have name, description  and coordinates.
+Check the provided example to see its implementation. Elevation and description are optional attributes.
 

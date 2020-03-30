@@ -34,3 +34,5 @@ any feedback, comments, or questions you might have.
 <pre class=include>path: dataModel.bs</pre>
 <pre class=include>path: gpx.bs</pre>
 
+<pre class=include>path: jsonldProposal/podManagement.bs</pre>
+

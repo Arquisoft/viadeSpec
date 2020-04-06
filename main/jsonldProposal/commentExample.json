@@ -13,16 +13,16 @@
             "@id": "userCommentStructure.json"
         },
         {
-            "@id": "http://inrupt.luispc1998/viade//image/imagen.jpg"
+            "@id": "http://inrupt.luispc1998/viade/comments/myComments/userComment2345632.jsonld"
         },
         {
-            "@id": "http://inrupt.angelixus/routeMedia/image/video.mp4"
+            "@id": "http://inrupt.angelixus/viade/comments/myComments/userComment4435634.jsonld"
         },
         {
-            "@id": "http://inrupt.raupemol/routeMedia/video/foto.png"
+            "@id": "http://inrupt.raupemol/viade/comments/myComments/userComment1234123415.jsonld"
         },
         {
-            "@id": "http://inrupt.luispc1998/routeMedia/video/video3.mp4"
+            "@id": "http://inrupt.luispc1998/viade/comments/myComments/userComment2314123412.jsonld"
         }
     ]
 

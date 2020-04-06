@@ -5,10 +5,6 @@
             "@container": "@list",
             "@id": "viade:comments"
         },
-        "comment":{
-            "@id": "viade:comment",
-            "@type": "@id"
-        },
         "viade": "http://arquisoft.github.io/viadeSpec/",
         "xsd": "http://www.w3.org/2001/XMLSchema#"
     },

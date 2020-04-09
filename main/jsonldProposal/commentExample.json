@@ -5,24 +5,29 @@
             "@container": "@list",
             "@id": "viade:comments"
         },
+        "dateCreated": {
+            "@id": "viade:dateCreated",
+            "@type": "xsd:date"
+        },
+        "text": {
+            "@id": "viade:text",
+            "@type": "xsd:string"
+        },
         "viade": "http://arquisoft.github.io/viadeSpec/",
         "xsd": "http://www.w3.org/2001/XMLSchema#"
     },
     "comments": [
         {
-            "@id": "userCommentStructure.json"
+            "text": "This is just a example !!",
+            "dateCreated": "2004-04-12" 
         },
         {
-            "@id": "http://inrupt.luispc1998/viade/comments/myComments/userComment2345632.jsonld"
+            "text": "This is just a example 3425!!",
+            "dateCreated": "2005-04-12" 
         },
         {
-            "@id": "http://inrupt.angelixus/viade/comments/myComments/userComment4435634.jsonld"
-        },
-        {
-            "@id": "http://inrupt.raupemol/viade/comments/myComments/userComment1234123415.jsonld"
-        },
-        {
-            "@id": "http://inrupt.luispc1998/viade/comments/myComments/userComment2314123412.jsonld"
+            "text": "This is just a example 2 !!",
+            "dateCreated": "2006-04-12" 
         }
     ]
 

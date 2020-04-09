@@ -59,6 +59,10 @@ viade/
 			image.png
 			video.mp4
 
+		shared/
+
+			luispresacollada.solid.community.jsonld
+
 </pre>
 
 ### Comments and resources ### {#resources}
@@ -82,9 +86,6 @@ routeComments will store the files related with the routes, that have the links 
 the comments file that will be in the directory viade/comments/routeComments/..., it will be a jsonLD file, and she will add here the link to the comment in her pod.
 
 
-## How to share ## {#share}
-The simplest idea for this seems to handle the permissions of the route files and when sharing a route give the "receiver" permissions to read the route file.
-
 ## What should be done about GPX? ## {#gpxToJson}
 A gpx file can contain several elements "trk" (from the word "track") which are the ones that match our concept of "Route", that is a path, a sequence of points. Inside this label we can have
 several "trkseg", which stand as sequences of ordered points (trkpt). Our duty will be to take all the trkpt and put them inside the "viade:points" property of the example json.
@@ -95,3 +96,13 @@ There is a type of points in a GPX called "waypoints", they are relevant points 
 a waypoint can be a church, a restaurant, a monument, and so far so forth. We will include this points in our routes jsonld files. They will have name, description  and coordinates.
 Check the provided example to see its implementation. Elevation and description are optional attributes.
 
+
+## How to share ## {#share}
+We have performed a voting in order to follow the approach of the permissions, or use the inbox folder in order to manipulate the sharing functionality. In the end we wil be using the second
+one. But for such a task we need some kind of agreement in the file structure in the "receiver". Assume Luis wants to share a route with Sara. Luis will give her permissions to the files,
+and send her a notification, with the webid of the route and his own webid. Sara's app will parse the notification and add that route id to a file.
+
+Such files will be placed in the folder viade/shared, and will have a name such as: luispresacollada.solid.community. (The corresponding part of the webID)
+You may check the structure in the file "sharedRoutesExample", it contains a simple list with @id pointing to the shared routes.
+
+<pre class="include">path: jsonldProposal/sharedRoutesExample.json</pre>

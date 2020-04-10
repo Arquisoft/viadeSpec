@@ -59,6 +59,11 @@ viade/
 			image.png
 			video.mp4
 
+		inbox/
+
+			sharingNotification1.jsonld
+			sharingNotification2.jsonld
+
 		shared/
 
 			luispresacollada.solid.community.jsonld
@@ -106,3 +111,4 @@ Such files will be placed in the folder viade/shared, and will have a name such 
 You may check the structure in the file "sharedRoutesExample", it contains a simple list with @id pointing to the shared routes.
 
 <pre class="include">path: jsonldProposal/sharedRoutesExample.json</pre>
+

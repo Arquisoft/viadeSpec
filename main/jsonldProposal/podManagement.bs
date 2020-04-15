@@ -15,14 +15,14 @@ but at least this should be there.
 
 The following properties can be found:
 
-* name: the name of the route
-* author: the webId of the creator of the route (optional)
-* description: a description of the route (optional)
-* waypoints: a list of waypoints (optional)
-* points: points of the route, describing the path
+* name: the name of the route.
+* author: the webId of the creator of the route (optional).
+* description: a description of the route (optional).
+* waypoints: a list of waypoints (optional).
+* points: points of the route, describing the path.
 * comments: a link (@id) to a file related with the route where the links to the users comments will be stored.
-* resources: a list of links to resources.
-
+* date: the date of creation of the route (optional).
+* media: a list of links to resources. Also contains the optional property "name" for each media element.
 
 The example (if any error is seen in the context, please point it out):
 

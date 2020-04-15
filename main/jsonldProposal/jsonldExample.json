@@ -37,6 +37,10 @@
             "@id": "schema:author",
             "@type": "@id"
         },
+        "date": {
+            "@id": "schema:DateTime",
+            "@type": "xsd:dateTime"
+        },
 		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "schema": "http://schema.org/",
@@ -47,19 +51,23 @@
     "author": "https://luispresacollada.solid.community/profile/card#me",
     "description": "This is a test to see the output of the JsonLDConversor",
     "comments": "http://inrupt.luispc1998/viade/comments/routeComments/commentExample.json",
-    
+    "date": "2020-02-25T18:50:22Z",    
     "media": [
         {
-            "@id": "http://inrupt.luispc1998/viade/resources/imagen.jpg"
+            "@id": "http://inrupt.luispc1998/viade/resources/da34fas749sa3h883j.jpg",
+            "name": "MyFoto"
         },
         {
-            "@id": "http://inrupt.angelixus/viade/resources/video.mp4"
+            "@id": "http://inrupt.angelixus/viade/resources/pt92as74234a3h5xb3j.mp4",
+            "name": "MyVideo"
         },
         {
-            "@id": "http://inrupt.raupemol/viade/resources/foto.png"
+            "@id": "http://inrupt.raupemol/viade/resources/da34zas4213sa7b542.png",
+            "name": "OtherFoto"
         },
         {
-            "@id": "http://inrupt.luispc1998/viade/resources/video3.mp4"
+            "@id": "http://inrupt.luispc1998/viade/resources/da345432jtsa7b542e.mp4",
+            "name": "OtherVideo"
         }
     ],
     "waypoints" : [

@@ -1,0 +1,25 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "routes": {
+            "@container": "@list",
+            "@id": "viade:routes"
+        },
+        "viade": "http://arquisoft.github.io/viadeSpec/"
+    },
+    "routes": [
+        {
+            "@id": "http://inrupt.luispc1998/viade/routes/route1.jsonld"
+        },
+        {
+            "@id": "http://inrupt.angelixus/viade/routes/example.jsonld"
+        },
+        {
+            "@id": "http://inrupt.raupemol/viade/routes/magicalRoute.jsonld"
+        },
+        {
+            "@id": "http://inrupt.luispc1998/viade/routes/exampl2.jsonld"
+        }
+    ]
+
+}

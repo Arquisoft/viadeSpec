@@ -1,11 +1,11 @@
 ## GPX Routes ## {#gpx}
 
-[[GPX]] is a popular XML format that could be used to represent routes. There are two possibilities: to convert the XML format to Turtle or 
- to embed the XML file as an RDF literal. 
+[[GPX]] is a popular XML format that could be used to represent routes. There are two possibilities: to convert the XML format to Turtle or
+ to embed the XML file as an RDF literal.
 
 ### GPX Routes converted to Turtle ### {#gpxTurtle}
 
-GPX routes can be represented in Turtle using the following Shape Expression: 
+GPX routes can be represented in Turtle using the following Shape Expression:
 
 <xmp highlight="turtle">
 prefix :    <https://www.w3.org/ns/pim/gpx#>
@@ -14,24 +14,24 @@ prefix gpx: <https://www.w3.org/ns/pim/gpx#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-# This document contains a ShEx representation of the XML Schema defined for GPX 
+# This document contains a ShEx representation of the XML Schema defined for GPX
 # The original schema URI is <http://www.topografix.com/GPX/1/1>
 
 start = @:gpxType
 
-# GPX documents contain a metadata header, followed by waypoints, routes, and tracks. 
+# GPX documents contain a metadata header, followed by waypoints, routes, and tracks.
 # You can add your own elements to the extensions section of the GPX document
 :gpxType {
  gpx:creator    xsd:string ? ;
- gpx:version    xsd:string ? ;  
- gpx:metadata   @:metadataType ? ;  
+ gpx:version    xsd:string ? ;
+ gpx:metadata   @:metadataType ? ;
  gpx:wpt        @:wptType * ;
  gpx:rte        @:rteType * ;
  gpx:trk        @:trkType * ;
  gpx:extensions @:extensionsType ?
-} 
+}
 
-# Information about the GPX file, author, and copyright restrictions goes in the metadata section. 
+# Information about the GPX file, author, and copyright restrictions goes in the metadata section.
 # Providing rich, meaningful information about your GPX files allows others to search for and use your GPS data.
 :metadataType {
  gpx:name       xsd:string ? ;
@@ -101,19 +101,19 @@ start = @:gpxType
  gpx:trkseg     @:trksegType *
 }
 
-# Allow any elements from a namespace other than this schema's namespace 
+# Allow any elements from a namespace other than this schema's namespace
 :extensionsType {
 }
 
-# A Track Segment holds a list of Track Points which are logically connected in order. 
-# To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, 
+# A Track Segment holds a list of Track Points which are logically connected in order.
+# To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off,
 # start a new Track Segment for each continuous span of track data.
 :trksegType {
  gpx:trkpts     @:wptTypeList    * ;
- gpx:extensions @:extensionsType ? 
+ gpx:extensions @:extensionsType ?
 }
 
-# Information about the copyright holder and any license governing use of this file. 
+# Information about the copyright holder and any license governing use of this file.
 # By linking to an appropriate license, you may place your data into the public domain or grant additional usage rights.
 :copyrightType {
  gpx:author  xsd:string ;
@@ -125,20 +125,20 @@ start = @:gpxType
 :linkType {
  gpx:href xsd:anyURI   ;
  gpx:text xsd:string ? ;
- gpx:type xsd:string ?   
+ gpx:type xsd:string ?
 }
 
 # An email address. Broken into two parts (id and domain) to help prevent email harvesting.
 :emailType {
  gpx:id     xsd:string ;
- gpx:domain xsd:string ;   
+ gpx:domain xsd:string ;
 }
 
 # A person or organization.
 :personType {
  gpx:name   xsd:string ? ;
  gpx:email  @:emailType ;
- gpx:link   @:linkType 
+ gpx:link   @:linkType
 }
 
 # A geographic point with optional elevation and time. Available for use by other schemas.
@@ -160,7 +160,7 @@ start = @:gpxType
  gpx:minlat @:latitudeType  ;
  gpx:minlon @:longitudeType ;
  gpx:maxlat @:latitudeType  ;
- gpx:maxlon @:longitudeType    
+ gpx:maxlon @:longitudeType
 }
 
 # The latitude of the point. Decimal degrees, WGS84 datum
@@ -184,7 +184,7 @@ start = @:gpxType
 As an example a VIADE route represented using GPX as Turtle could be:
 
 <xmp highlight="turtle">
-prefix :   <http://example.org/> 
+prefix :   <http://example.org/>
 prefix viade: <http://arquisoft.github.io/viadeSpec/>
 prefix schema: <http://schema.org/>
 prefix xsd:    <http://www.w3.org/2001/XMLSchema#>
@@ -192,7 +192,7 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
 
 :exampleRoute a viade:Route ;
  schema:name   "A nice walk" ;
- viade:gpx [ 
+ viade:gpx [
   gpx:creator  "Oregon 400t" ;
   gpx:version   "1.1";
   gpx:metadata  [ gpx:link  [ gpx:href  "http://www.garmin.com" ;
@@ -206,34 +206,34 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
                                                        gpx:lon   -122.326897 ;
                                                        gpx:time  "2009-10-17T18:37:26Z"^^xsd:dateTime
                                                      ] ]
-                                                    [ gpx:trkpt  [ 
+                                                    [ gpx:trkpt  [
                                                        gpx:ele   4.94 ;
                                                        gpx:lat   47.644548 ;
                                                        gpx:lon   -122.326897 ;
                                                        gpx:time  "2009-10-17T18:37:31Z"^^xsd:dateTime
                                                     ] ]
-                                                    [ gpx:trkpt  [ 
+                                                    [ gpx:trkpt  [
                                                        gpx:ele   6.87 ;
                                                        gpx:lat   47.644548 ;
                                                        gpx:lon   -122.326897 ;
                                                        gpx:time  "2009-10-17T18:37:34Z"^^xsd:dateTime
                                                     ] ]
                                         ) ]
-            ] 
+            ]
  ]
-. 
+.
 </xmp>
 
 
 
 ### GPX routes embedded as literals ### {#GPXRoutesAsLiterals}
 
-It is also possible to represent the routes embedding the XML content as an RDF literal. 
+It is also possible to represent the routes embedding the XML content as an RDF literal.
 
 The following example contains a GPX route embedded as an RDF literal.
 
 <xmp highlight="turtle">
-prefix :   <http://example.org/> 
+prefix :   <http://example.org/>
 prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix viade: <http://arquisoft.github.io/viadeSpec/>
 prefix schema: <http://schema.org/>
@@ -269,10 +269,10 @@ prefix gpx:   <https://www.w3.org/ns/pim/gpx#>
   </trk>
  </gpx>"""^^rdf:XMLLiteral ;
  ]
-. 
+.
 </xmp>
 
 ### GPX to RDF converters  ### {#gpx2RDF}
 
-It is possible to convert from GPX files in XML to RDF files in RDF/XML using the 
+It is possible to convert from GPX files in XML to RDF files in RDF/XML using the
  following [XSLT file](https://github.com/Arquisoft/viadeSpec/blob/master/converters/gpx2rdf.xslt)

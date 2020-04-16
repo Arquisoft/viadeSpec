@@ -1221,9 +1221,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 2d9ffc4, updated Fri Mar 20 17:26:52 2020 -0700" name="generator">
+  <meta content="Bikeshed version b76f905, updated Mon Apr 13 16:17:21 2020 -0700" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="17f91c13bf356d161db92ec99560f48c5f2474c9" name="document-revision">
+  <meta content="7f635becde0be85dc485a85940931ee80b2dbf59" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1470,7 +1470,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">VIADE data model specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-03-21">21 March 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-04-16">16 April 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1487,7 +1487,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 21 March 2020,
+In addition, as of 16 April 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1508,6 +1508,14 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#namespaces"><span class="secno">1.2</span> <span class="content">Namespaces</span></a>
       <li><a href="#dataModel"><span class="secno">1.3</span> <span class="content">Data model</span></a>
       <li><a href="#gpx"><span class="secno">1.4</span> <span class="content">GPX Routes</span></a>
+     </ol>
+    <li>
+     <a href="#podManagement"><span class="secno">2</span> <span class="content">Pod Management</span></a>
+     <ol class="toc">
+      <li><a href="#fileFormat"><span class="secno">2.1</span> <span class="content">File format</span></a>
+      <li><a href="#directoryHierarchy"><span class="secno">2.2</span> <span class="content">Directory hierarchy in the POD</span></a>
+      <li><a href="#gpxToJson"><span class="secno">2.3</span> <span class="content">What should be done about GPX?</span></a>
+      <li><a href="#share"><span class="secno">2.4</span> <span class="content">How to share</span></a>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
@@ -1695,24 +1703,24 @@ OPTIONAL <c- p>{</c->?point <c- nn>schema:</c-><c- f>elevation</c-> ?elevation<c
 <c- k>prefix</c-> <c- nn>xsd:</c-> <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
 
 
-<c- c># This document contains a ShEx representation of the XML Schema defined for GPX </c->
+<c- c># This document contains a ShEx representation of the XML Schema defined for GPX</c->
 <c- c># The original schema URI is &lt;http://www.topografix.com/GPX/1/1></c->
 
 start = @<c- nn>:</c-><c- f>gpxType</c->
 
-<c- c># GPX documents contain a metadata header, followed by waypoints, routes, and tracks. </c->
+<c- c># GPX documents contain a metadata header, followed by waypoints, routes, and tracks.</c->
 <c- c># You can add your own elements to the extensions section of the GPX document</c->
 <c- nn>:</c-><c- f>gpxType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>creator</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>version</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->  
- <c- nn>gpx:</c-><c- f>metadata</c->   @<c- nn>:</c-><c- f>metadataType</c-> ? <c- p>;</c->  
+ <c- nn>gpx:</c-><c- f>version</c->    <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
+ <c- nn>gpx:</c-><c- f>metadata</c->   @<c- nn>:</c-><c- f>metadataType</c-> ? <c- p>;</c->
  <c- nn>gpx:</c-><c- f>wpt</c->        @<c- nn>:</c-><c- f>wptType</c-> * <c- p>;</c->
  <c- nn>gpx:</c-><c- f>rte</c->        @<c- nn>:</c-><c- f>rteType</c-> * <c- p>;</c->
  <c- nn>gpx:</c-><c- f>trk</c->        @<c- nn>:</c-><c- f>trkType</c-> * <c- p>;</c->
  <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ?
-<c- p>}</c-> 
+<c- p>}</c->
 
-<c- c># Information about the GPX file, author, and copyright restrictions goes in the metadata section. </c->
+<c- c># Information about the GPX file, author, and copyright restrictions goes in the metadata section.</c->
 <c- c># Providing rich, meaningful information about your GPX files allows others to search for and use your GPS data.</c->
 <c- nn>:</c-><c- f>metadataType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>name</c->       <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
@@ -1782,19 +1790,19 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
  <c- nn>gpx:</c-><c- f>trkseg</c->     @<c- nn>:</c-><c- f>trksegType</c-> *
 <c- p>}</c->
 
-<c- c># Allow any elements from a namespace other than this schema’s namespace </c->
+<c- c># Allow any elements from a namespace other than this schema’s namespace</c->
 <c- nn>:</c-><c- f>extensionsType</c-> <c- p>{</c->
 <c- p>}</c->
 
-<c- c># A Track Segment holds a list of Track Points which are logically connected in order. </c->
-<c- c># To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, </c->
+<c- c># A Track Segment holds a list of Track Points which are logically connected in order.</c->
+<c- c># To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off,</c->
 <c- c># start a new Track Segment for each continuous span of track data.</c->
 <c- nn>:</c-><c- f>trksegType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>trkpts</c->     @<c- nn>:</c-><c- f>wptTypeList</c->    * <c- p>;</c->
- <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ? 
+ <c- nn>gpx:</c-><c- f>extensions</c-> @<c- nn>:</c-><c- f>extensionsType</c-> ?
 <c- p>}</c->
 
-<c- c># Information about the copyright holder and any license governing use of this file. </c->
+<c- c># Information about the copyright holder and any license governing use of this file.</c->
 <c- c># By linking to an appropriate license, you may place your data into the public domain or grant additional usage rights.</c->
 <c- nn>:</c-><c- f>copyrightType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>author</c->  <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->
@@ -1806,20 +1814,20 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- nn>:</c-><c- f>linkType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>href</c-> <c- nn>xsd:</c-><c- f>anyURI</c->   <c- p>;</c->
  <c- nn>gpx:</c-><c- f>text</c-> <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
- <c- nn>gpx:</c-><c- f>type</c-> <c- nn>xsd:</c-><c- f>string</c-> ?   
+ <c- nn>gpx:</c-><c- f>type</c-> <c- nn>xsd:</c-><c- f>string</c-> ?
 <c- p>}</c->
 
 <c- c># An email address. Broken into two parts (id and domain) to help prevent email harvesting.</c->
 <c- nn>:</c-><c- f>emailType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>id</c->     <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>domain</c-> <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->   
+ <c- nn>gpx:</c-><c- f>domain</c-> <c- nn>xsd:</c-><c- f>string</c-> <c- p>;</c->
 <c- p>}</c->
 
 <c- c># A person or organization.</c->
 <c- nn>:</c-><c- f>personType</c-> <c- p>{</c->
  <c- nn>gpx:</c-><c- f>name</c->   <c- nn>xsd:</c-><c- f>string</c-> ? <c- p>;</c->
  <c- nn>gpx:</c-><c- f>email</c->  @<c- nn>:</c-><c- f>emailType</c-> <c- p>;</c->
- <c- nn>gpx:</c-><c- f>link</c->   @<c- nn>:</c-><c- f>linkType</c-> 
+ <c- nn>gpx:</c-><c- f>link</c->   @<c- nn>:</c-><c- f>linkType</c->
 <c- p>}</c->
 
 <c- c># A geographic point with optional elevation and time. Available for use by other schemas.</c->
@@ -1841,7 +1849,7 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
  <c- nn>gpx:</c-><c- f>minlat</c-> @<c- nn>:</c-><c- f>latitudeType</c->  <c- p>;</c->
  <c- nn>gpx:</c-><c- f>minlon</c-> @<c- nn>:</c-><c- f>longitudeType</c-> <c- p>;</c->
  <c- nn>gpx:</c-><c- f>maxlat</c-> @<c- nn>:</c-><c- f>latitudeType</c->  <c- p>;</c->
- <c- nn>gpx:</c-><c- f>maxlon</c-> @<c- nn>:</c-><c- f>longitudeType</c->    
+ <c- nn>gpx:</c-><c- f>maxlon</c-> @<c- nn>:</c-><c- f>longitudeType</c->
 <c- p>}</c->
 
 <c- c># The latitude of the point. Decimal degrees, WGS84 datum</c->
@@ -1861,7 +1869,7 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 </pre>
    <h4 class="heading settled" data-level="1.4.2" id="gpxExampleTurtle"><span class="secno">1.4.2. </span><span class="content">GPX Route example as Turtle</span><a class="self-link" href="#gpxExampleTurtle"></a></h4>
    <p>As an example a VIADE route represented using GPX as Turtle could be:</p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c-> 
+<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c->
 <c- k>prefix</c-> <c- nn>viade:</c-> <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
 <c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
 <c- k>prefix</c-> <c- nn>xsd:</c->    <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c->
@@ -1869,7 +1877,7 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 
 <c- nn>:</c-><c- f>exampleRoute</c-> <c- b>a</c-> <c- nn>viade:</c-><c- f>Route</c-> <c- p>;</c->
  <c- nn>schema:</c-><c- f>name</c->   <c- s>"A nice walk"</c-> <c- p>;</c->
- <c- nn>viade:</c-><c- f>gpx</c-> <c- p>[</c-> 
+ <c- nn>viade:</c-><c- f>gpx</c-> <c- p>[</c->
   <c- nn>gpx:</c-><c- f>creator</c->  <c- s>"Oregon 400t"</c-> <c- p>;</c->
   <c- nn>gpx:</c-><c- f>version</c->   <c- s>"1.1"</c-><c- p>;</c->
   <c- nn>gpx:</c-><c- f>metadata</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>link</c->  <c- p>[</c-> <c- nn>gpx:</c-><c- f>href</c->  <c- s>"http://www.garmin.com"</c-> <c- p>;</c->
@@ -1883,27 +1891,27 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
                                                        <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:26Z"</c-><c- o>^^</c->xsd:dateTime
                                                      <c- p>]</c-> <c- p>]</c->
-                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> 
+                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c->
                                                        <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>4.94</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:31Z"</c-><c- o>^^</c->xsd:dateTime
                                                     <c- p>]</c-> <c- p>]</c->
-                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c-> 
+                                                    <c- p>[</c-> <c- nn>gpx:</c-><c- f>trkpt</c->  <c- p>[</c->
                                                        <c- nn>gpx:</c-><c- f>ele</c->   <c- mf>6.87</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>lat</c->   <c- mf>47.644548</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>lon</c->   <c- mf>-122.326897</c-> <c- p>;</c->
                                                        <c- nn>gpx:</c-><c- f>time</c->  <c- s>"2009-10-17T18:37:34Z"</c-><c- o>^^</c->xsd:dateTime
                                                     <c- p>]</c-> <c- p>]</c->
                                         <c- p>)</c-> <c- p>]</c->
-            <c- p>]</c-> 
+            <c- p>]</c->
  <c- p>]</c->
-<c- p>.</c-> 
+<c- p>.</c->
 </pre>
    <h4 class="heading settled" data-level="1.4.3" id="GPXRoutesAsLiterals"><span class="secno">1.4.3. </span><span class="content">GPX routes embedded as literals</span><a class="self-link" href="#GPXRoutesAsLiterals"></a></h4>
    <p>It is also possible to represent the routes embedding the XML content as an RDF literal.</p>
    <p>The following example contains a GPX route embedded as an RDF literal.</p>
-<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c-> 
+<pre class="highlight"><c- k>prefix</c-> <c- nn>:</c->   <c- g>&lt;http://example.org/></c->
 <c- k>prefix</c-> <c- nn>rdf:</c->   <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c->
 <c- k>prefix</c-> <c- nn>viade:</c-> <c- g>&lt;http://arquisoft.github.io/viadeSpec/></c->
 <c- k>prefix</c-> <c- nn>schema:</c-> <c- g>&lt;http://schema.org/></c->
@@ -1939,11 +1947,273 @@ start = @<c- nn>:</c-><c- f>gpxType</c->
 <c- s>  &lt;/trk></c->
 <c- s> &lt;/gpx>"""^^rdf:XMLLiteral ;</c->
 <c- s> ]</c->
-<c- s>. </c->
+<c- s>.</c->
 </pre>
    <h4 class="heading settled" data-level="1.4.4" id="gpx2RDF"><span class="secno">1.4.4. </span><span class="content">GPX to RDF converters</span><a class="self-link" href="#gpx2RDF"></a></h4>
    <p>It is possible to convert from GPX files in XML to RDF files in RDF/XML using the
  following <a href="https://github.com/Arquisoft/viadeSpec/blob/master/converters/gpx2rdf.xslt">XSLT file</a></p>
+   <h2 class="heading settled" data-level="2" id="podManagement"><span class="secno">2. </span><span class="content">Pod Management</span><a class="self-link" href="#podManagement"></a></h2>
+   <p>It is crucial for the interoperability that we handle the POD data in the same way. Here is a proposal of what we can do. Note that this pretends to be an
+starting point to the complete specification, and so it is open to discussion.</p>
+   <h3 class="heading settled" data-level="2.1" id="fileFormat"><span class="secno">2.1. </span><span class="content">File format</span><a class="self-link" href="#fileFormat"></a></h3>
+    For the file format we can use JSON-LD, we have used JSON along the degree and we are very familiar with it,
+it won’t be a problem to handle that in the application, in fact Javascript facilitates that task with the built-in object "JSON". 
+   <h4 class="heading settled" data-level="2.1.1" id="fileExample"><span class="secno">2.1.1. </span><span class="content">File example</span><a class="self-link" href="#fileExample"></a></h4>
+    What comes next is an example of the <strong>minimum</strong> data that should be stored in the pod with the JSON-LD. More data could be added by our apps,
+but at least this should be there. 
+   <p>The following properties can be found:</p>
+   <ul>
+    <li data-md>
+     <p>name: the name of the route.</p>
+    <li data-md>
+     <p>author: the webId of the creator of the route (optional).</p>
+    <li data-md>
+     <p>description: a description of the route (optional).</p>
+    <li data-md>
+     <p>waypoints: a list of waypoints (optional).</p>
+    <li data-md>
+     <p>points: points of the route, describing the path.</p>
+    <li data-md>
+     <p>comments: a link (@id) to a file related with the route where the links to the users comments will be stored.</p>
+    <li data-md>
+     <p>date: the date of creation of the route (optional).</p>
+    <li data-md>
+     <p>media: a list of links to resources. Also contains the optional property "name" for each media element.</p>
+   </ul>
+   <p>The example (if any error is seen in the context, please point it out):</p>
+   <p>_If it cannot be seen in the include please check it manually because afterwards there will be mentions about it._</p>
+   <p>{
+    "@context": {
+        "@version": 1.1,
+        "comments": {
+            "@id": "viade:comments",
+            "@type": "@id"
+        },
+        "description": {
+            "@id": "schema:description",
+            "@type": "xsd:string"
+        },
+        "media": {
+            "@container": "@list",
+            "@id": "viade:media"
+        },
+        "name": {
+            "@id": "schema:name",
+            "@type": "xsd:string"
+        },
+        "points": {
+            "@container": "@list",
+            "@id": "viade:points"
+        },
+        "latitude": {
+            "@id": "schema:latitude",
+            "@type": "xsd:double"
+        },
+        "longitude": {
+            "@id": "schema:longitude",
+            "@type": "xsd:double"
+        },
+        "elevation": {
+            "@id": "schema:elevation",
+            "@type": "xsd:double"
+        },
+        "author":{
+            "@id": "schema:author",
+            "@type": "@id"
+        },
+        "date": {
+            "@id": "schema:DateTime",
+            "@type": "xsd:dateTime"
+        },
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "schema": "http://schema.org/",
+        "viade": "http://arquisoft.github.io/viadeSpec/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "name": "Route test 1",
+    "author": "https://luispresacollada.solid.community/profile/card#me",
+    "description": "This is a test to see the output of the JsonLDConversor",
+    "comments": "http://inrupt.luispc1998/viade/comments/routeComments/commentExample.json",
+    "date": "2020-02-25T18:50:22Z",    
+    "media": [
+        {
+            "@id": "http://inrupt.luispc1998/viade/resources/da34fas749sa3h883j.jpg",
+            "name": "MyFoto"
+        },
+        {
+            "@id": "http://inrupt.angelixus/viade/resources/pt92as74234a3h5xb3j.mp4",
+            "name": "MyVideo"
+        },
+        {
+            "@id": "http://inrupt.raupemol/viade/resources/da34zas4213sa7b542.png",
+            "name": "OtherFoto"
+        },
+        {
+            "@id": "http://inrupt.luispc1998/viade/resources/da345432jtsa7b542e.mp4",
+            "name": "OtherVideo"
+        }
+    ],
+    "waypoints" : [
+        {
+            "name": "Name for the waypoint",
+            "description": "Description of the waypoint",
+            "latitude": 45.123,
+            "longitude": 34.121,
+            "elevation": 34
+        },
+        {
+            "name": "Computer Science School",
+            "description": "Become a good engineer with us",
+            "latitude": 45.123,
+            "longitude": 34.121,
+            "elevation": 34
+        }</p>
+   <p>],
+    "points": [
+        {
+            "latitude": 45.123,
+            "longitude": 34.121,
+            "elevation": 34
+        },
+        {
+            "latitude": 46.123,
+            "longitude": 34.121,
+            "elevation": 36
+        },
+        {
+            "latitude": 47.123,
+            "longitude": 34,
+            "elevation": 39
+        },
+        {
+            "latitude": 48.123,
+            "longitude": 32.121,
+            "elevation": 40
+        },
+        {
+            "latitude": 49.123,
+            "longitude": 34.121,
+            "elevation": 43
+        },
+        {
+            "latitude": 40.123,
+            "longitude": 32.121,
+            "elevation": 46
+        },
+        {
+            "latitude": 50.123,
+            "longitude": 33.121,
+            "elevation": 50
+        },
+        {
+            "latitude": 53.123,
+            "longitude": 34.121,
+            "elevation": 55
+        },
+        {
+            "latitude": 54.123,
+            "longitude": 34.121,
+            "elevation": 56
+        },
+        {
+            "latitude": 55.123,
+            "longitude": 35.121,
+            "elevation": 50
+        },
+        {
+            "latitude": 55.123,
+            "longitude": 34.121,
+            "elevation": 45
+        }
+    ]</p>
+    } 
+   <h3 class="heading settled" data-level="2.2" id="directoryHierarchy"><span class="secno">2.2. </span><span class="content">Directory hierarchy in the POD</span><a class="self-link" href="#directoryHierarchy"></a></h3>
+    Not only we need to state what information should be in the pod, but also where it is located. 
+   <p>We proposed a "viade" folder in the root of the pod, and inside it three folders: routes, comments, resources.</p>
+<pre>viade/
+
+    routes/
+
+      example.jsonld
+      example2.jsonld
+
+    comments/
+
+      myComments/
+        userComment.jsonld
+        userComment2.jsonld
+
+      routeComments/
+        ruta1Comments.jsonld
+        ruta2Comments.jsonld
+
+    resources/
+
+      foto.jpg
+      image.png
+      video.mp4
+
+    inbox/
+
+      sharingNotification1.jsonld
+      sharingNotification2.jsonld
+
+    shared/
+
+      luispresacollada.solid.community.jsonld
+
+</pre>
+   <h4 class="heading settled" data-level="2.2.1" id="resources"><span class="secno">2.2.1. </span><span class="content">Comments and resources</span><a class="self-link" href="#resources"></a></h4>
+    These two are thought to be in the pod of the user that truly owns them, therefore, a user will have in its pod comments and resources that will
+be referenced from other routes (it is a graph, the file will be in many places) 
+   <p>We are considering two different folders even though they are just references because the way we would treat them, we may even not display those two groups
+at the same time.</p>
+   <p>Due to the fact that we should allow other users to comment the routes, but we cannot let them edit the route file that leaded to the following approach.
+Routes should have a link to a file that stores links to the comments of the users that commented. Consider the following example:</p>
+   <p>Luis published a route long ago, and now he shared it with his friend Sara. Sara wants to comment it. The application will create the comment in Sara’s POD, because it’s
+her comment, and it will read from the route file its assigned file to comment (We are on Luis' POD), there it will write a link to Sara’s comment in Sara’s POD. These process
+need to divide the comments folder into two subfolders: myComments and routeComments.</p>
+   <p>myComments will store the user’s comments, in our previous example, Sara will write her comment in the directory viade/comments/myComments/ of her POD.</p>
+   <p>routeComments will store the files related with the routes, that have the links to the comments. In our previous example, Sara’s app client will read in the shared route and locate
+the comments file that will be in the directory viade/comments/routeComments/..., it will be a jsonLD file, and she will add here the link to the comment in her pod.</p>
+   <h3 class="heading settled" data-level="2.3" id="gpxToJson"><span class="secno">2.3. </span><span class="content">What should be done about GPX?</span><a class="self-link" href="#gpxToJson"></a></h3>
+    A gpx file can contain several elements "trk" (from the word "track") which are the ones that match our concept of "Route", that is a path, a sequence of points. Inside this label we can have
+several "trkseg", which stand as sequences of ordered points (trkpt). Our duty will be to take all the trkpt and put them inside the "viade:points" property of the example json. 
+   <p>The gpx trk label can have a name and a description so it could be direct translation. Or we may want the user to introduce that data, that’s an app design decision.</p>
+   <p>There is a type of points in a GPX called "waypoints", they are relevant points that are in some way related to the specified tracks. Assuming a path across a city,
+a waypoint can be a church, a restaurant, a monument, and so far so forth. We will include this points in our routes jsonld files. They will have name, description  and coordinates.
+Check the provided example to see its implementation. Elevation and description are optional attributes.</p>
+   <h3 class="heading settled" data-level="2.4" id="share"><span class="secno">2.4. </span><span class="content">How to share</span><a class="self-link" href="#share"></a></h3>
+    We have performed a voting in order to follow the approach of the permissions, or use the inbox folder in order to manipulate the sharing functionality. In the end we wil be using the second
+one. But for such a task we need some kind of agreement in the file structure in the "receiver". Assume Luis wants to share a route with Sara. Luis will give her permissions to the files,
+and send her a notification, with the webid of the route and his own webid. Sara’s app will parse the notification and add that route id to a file. 
+   <p>Such files will be placed in the folder viade/shared, and will have a name such as: luispresacollada.solid.community. (The corresponding part of the webID)
+You may check the structure in the file "sharedRoutesExample", it contains a simple list with @id pointing to the shared routes.</p>
+   <p>{
+    "@context": {
+        "@version": 1.1,
+        "routes": {
+            "@container": "@list",
+            "@id": "viade:routes"
+        },
+        "viade": "http://arquisoft.github.io/viadeSpec/"
+    },
+    "routes": [
+        {
+            "@id": "http://inrupt.luispc1998/viade/routes/route1.jsonld"
+        },
+        {
+            "@id": "http://inrupt.angelixus/viade/routes/example.jsonld"
+        },
+        {
+            "@id": "http://inrupt.raupemol/viade/routes/magicalRoute.jsonld"
+        },
+        {
+            "@id": "http://inrupt.luispc1998/viade/routes/exampl2.jsonld"
+        }
+    ]</p>
+   <p>}</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>

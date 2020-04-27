@@ -1221,9 +1221,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version b76f905, updated Mon Apr 13 16:17:21 2020 -0700" name="generator">
+  <meta content="Bikeshed version d2959a4, updated Fri Apr 24 17:44:40 2020 -0700" name="generator">
   <link href="https://arquisoft.github.io/viadeSpec/" rel="canonical">
-  <meta content="7f635becde0be85dc485a85940931ee80b2dbf59" name="document-revision">
+  <meta content="e32c77f5e831039391f4e918e08eaa7d7d90f15f" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1470,7 +1470,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">VIADE data model specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-04-16">16 April 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Document, <time class="dt-updated" datetime="2020-04-27">27 April 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1487,7 +1487,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 16 April 2020,
+In addition, as of 27 April 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1974,7 +1974,7 @@ but at least this should be there.
     <li data-md>
      <p>points: points of the route, describing the path.</p>
     <li data-md>
-     <p>comments: a link (@id) to a file related with the route where the links to the users comments will be stored.</p>
+     <p>comments: a link (@id) to a file related with the route where the users comments will be stored.</p>
     <li data-md>
      <p>date: the date of creation of the route (optional).</p>
     <li data-md>
@@ -2034,7 +2034,7 @@ but at least this should be there.
     "name": "Route test 1",
     "author": "https://luispresacollada.solid.community/profile/card#me",
     "description": "This is a test to see the output of the JsonLDConversor",
-    "comments": "http://inrupt.luispc1998/viade/comments/routeComments/commentExample.json",
+    "comments": "http://inrupt.luispc1998/viade/comments/commentExample.json",
     "date": "2020-02-25T18:50:22Z",    
     "media": [
         {
@@ -2140,13 +2140,8 @@ but at least this should be there.
 
     comments/
 
-      myComments/
-        userComment.jsonld
-        userComment2.jsonld
-
-      routeComments/
-        ruta1Comments.jsonld
-        ruta2Comments.jsonld
+      ruta1Comments.jsonld
+      ruta2Comments.jsonld
 
     resources/
 
@@ -2165,18 +2160,15 @@ but at least this should be there.
 
 </pre>
    <h4 class="heading settled" data-level="2.2.1" id="resources"><span class="secno">2.2.1. </span><span class="content">Comments and resources</span><a class="self-link" href="#resources"></a></h4>
-    These two are thought to be in the pod of the user that truly owns them, therefore, a user will have in its pod comments and resources that will
-be referenced from other routes (it is a graph, the file will be in many places) 
-   <p>We are considering two different folders even though they are just references because the way we would treat them, we may even not display those two groups
-at the same time.</p>
-   <p>Due to the fact that we should allow other users to comment the routes, but we cannot let them edit the route file that leaded to the following approach.
-Routes should have a link to a file that stores links to the comments of the users that commented. Consider the following example:</p>
-   <p>Luis published a route long ago, and now he shared it with his friend Sara. Sara wants to comment it. The application will create the comment in Sara’s POD, because it’s
-her comment, and it will read from the route file its assigned file to comment (We are on Luis' POD), there it will write a link to Sara’s comment in Sara’s POD. These process
-need to divide the comments folder into two subfolders: myComments and routeComments.</p>
-   <p>myComments will store the user’s comments, in our previous example, Sara will write her comment in the directory viade/comments/myComments/ of her POD.</p>
-   <p>routeComments will store the files related with the routes, that have the links to the comments. In our previous example, Sara’s app client will read in the shared route and locate
-the comments file that will be in the directory viade/comments/routeComments/..., it will be a jsonLD file, and she will add here the link to the comment in her pod.</p>
+   <p>Each route will have linked a file for the comments from the very momment of its creation. In this file the users that have received the route in a share operation can
+post their comments. This approach is highly efficient and by using it we get rid of permissions problems with respect to the one that stores the comments of each user in
+his pod.</p>
+   <p>Such files just to follow a convention are supposed to be stored in viade/comments folder, although since we are navigating through a graph it is not really important from
+the interoperability point of view where is the file.</p>
+   <p>Consider the following example:</p>
+   <p>Luis published a route long ago, and now he shared it with his friend Sara. Sara wants to comment it. Sara will access the comments file of the route by means of the route
+file, and she will post there her comment. She has permissions because Luis gave them to her when sharing the route.</p>
+   <p>You can find examples of the files int the jsonlfProposal folder.</p>
    <h3 class="heading settled" data-level="2.3" id="gpxToJson"><span class="secno">2.3. </span><span class="content">What should be done about GPX?</span><a class="self-link" href="#gpxToJson"></a></h3>
     A gpx file can contain several elements "trk" (from the word "track") which are the ones that match our concept of "Route", that is a path, a sequence of points. Inside this label we can have
 several "trkseg", which stand as sequences of ordered points (trkpt). Our duty will be to take all the trkpt and put them inside the "viade:points" property of the example json. 

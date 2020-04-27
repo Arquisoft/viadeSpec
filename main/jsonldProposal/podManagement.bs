@@ -20,7 +20,7 @@ The following properties can be found:
 * description: a description of the route (optional).
 * waypoints: a list of waypoints (optional).
 * points: points of the route, describing the path.
-* comments: a link (@id) to a file related with the route where the links to the users comments will be stored.
+* comments: a link (@id) to a file related with the route where the users comments will be stored.
 * date: the date of creation of the route (optional).
 * media: a list of links to resources. Also contains the optional property "name" for each media element.
 
@@ -45,13 +45,8 @@ viade/
 
 		comments/
 
-			myComments/
-				userComment.jsonld
-				userComment2.jsonld
-
-			routeComments/
-				ruta1Comments.jsonld
-				ruta2Comments.jsonld
+			ruta1Comments.jsonld
+			ruta2Comments.jsonld
 
 		resources/
 
@@ -71,24 +66,21 @@ viade/
 </pre>
 
 ### Comments and resources ### {#resources}
-These two are thought to be in the pod of the user that truly owns them, therefore, a user will have in its pod comments and resources that will
-be referenced from other routes (it is a graph, the file will be in many places)
 
-We are considering two different folders even though they are just references because the way we would treat them, we may even not display those two groups
-at the same time.
+Each route will have linked a file for the comments from the very momment of its creation. In this file the users that have received the route in a share operation can
+post their comments. This approach is highly efficient and by using it we get rid of permissions problems with respect to the one that stores the comments of each user in
+his pod.
+
+Such files just to follow a convention are supposed to be stored in viade/comments folder, although since we are navigating through a graph it is not really important from
+the interoperability point of view where is the file.
 
 
-Due to the fact that we should allow other users to comment the routes, but we cannot let them edit the route file that leaded to the following approach.
-Routes should have a link to a file that stores links to the comments of the users that commented. Consider the following example:
+Consider the following example:
 
-Luis published a route long ago, and now he shared it with his friend Sara. Sara wants to comment it. The application will create the comment in Sara's POD, because it's
-her comment, and it will read from the route file its assigned file to comment (We are on Luis' POD), there it will write a link to Sara's comment in Sara's POD. These process
-need to divide the comments folder into two subfolders: myComments and routeComments.
+Luis published a route long ago, and now he shared it with his friend Sara. Sara wants to comment it. Sara will access the comments file of the route by means of the route
+file, and she will post there her comment. She has permissions because Luis gave them to her when sharing the route.
 
-myComments will store the user's comments, in our previous example, Sara will write her comment in the directory viade/comments/myComments/ of her POD.
-
-routeComments will store the files related with the routes, that have the links to the comments. In our previous example, Sara's app client will read in the shared route and locate
-the comments file that will be in the directory viade/comments/routeComments/..., it will be a jsonLD file, and she will add here the link to the comment in her pod.
+You can find examples of the files int the jsonlfProposal folder.
 
 
 ## What should be done about GPX? ## {#gpxToJson}

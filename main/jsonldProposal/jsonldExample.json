@@ -50,7 +50,7 @@
     "name": "Route test 1",
     "author": "https://luispresacollada.solid.community/profile/card#me",
     "description": "This is a test to see the output of the JsonLDConversor",
-    "comments": "http://inrupt.luispc1998/viade/comments/routeComments/commentExample.json",
+    "comments": "http://inrupt.luispc1998/viade/comments/commentExample.json",
     "date": "2020-02-25T18:50:22Z",    
     "media": [
         {
